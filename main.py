@@ -2,7 +2,7 @@ from TG.bot import start_bot
 from Api.api import start_server
 import multiprocessing
 from time import sleep
-
+import asyncio
 
 def start_tg_bot():
     start_bot()

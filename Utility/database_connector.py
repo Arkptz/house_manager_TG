@@ -14,7 +14,7 @@ class UsersDatabaseConnector:
         """Creates table if not exists."""
         self.cursor.execute('''CREATE TABLE IF NOT EXISTS User (
                                 name TEXT,
-                                id TEXT,
+                                id int,
                                 admin BOOLEAN,
                                 it BOOLEAN,
                                 electrical BOOLEAN,
@@ -22,6 +22,15 @@ class UsersDatabaseConnector:
                                 engineer BOOLEAN
                                 )''')
         self.db.commit()
+
+    async def get_columns_names(self,) -> list[str]:
+        cols = self.cursor.execute('''PRAGMA table_info(User) ''').fetchall()
+        cols_res = []
+        for i in cols:
+            col_name = i[1]
+            if not col_name in ['name', 'id']:
+                cols_res.append(col_name)
+        return cols_res
 
     async def get_admins(self,) -> list[tuple]:
         ans = self.cursor.execute('SELECT * FROM User WHERE admin').fetchall()
@@ -34,11 +43,26 @@ class UsersDatabaseConnector:
             if len(data) == 0:
                 self.cursor.execute(
                     'INSERT INTO User (id, admin) VALUES(?,?)', [user_id, True])
+            else:
+                self.cursor.execute(
+                    f'UPDATE User set admin = {True} WHERE id=?', [user_id])
         self.db.commit()
 
+
     async def add_user(self, user_info: dict):
-        self.cursor.execute('INSERT INTO USER VALUES(???????)', [
-                            user_info['name'], user_info['id'], user_info['admin'], '', '', '', ''])
+        self.cursor.execute('INSERT INTO User VALUES(?,?,?,?,?,?,?)', 
+                            list(user_info.values()))
+        self.db.commit()
+
+    async def get_users_not_admin(self,) -> list[tuple]:
+        ans = self.cursor.execute(
+            'SELECT * FROM User WHERE NOT admin').fetchall()
+        return ans
+
+    async def get_all_users(self,) -> list[tuple]:
+        ans = self.cursor.execute(
+            'SELECT * FROM User').fetchall()
+        return ans
 
 
 class FullBd:

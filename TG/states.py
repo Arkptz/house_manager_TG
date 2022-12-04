@@ -5,4 +5,21 @@ class AdminAddUser(StatesGroup):
     """State for register new user."""
     name = State()
     id = State()
-    admin = State()
+    permission = State()
+    
+
+class AdminAddAdmin(StatesGroup):
+    """State for register new user."""
+    users = State()
+    id = State()
+
+class AdminDeleteAdmin(StatesGroup):
+    """State for register new user."""
+    users = State()
+    id = State()
+
+class AdminRemotePermission(StatesGroup):
+    """State for register new user."""
+    users = State()
+    id = State()
+    permission = State()

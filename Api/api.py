@@ -23,9 +23,18 @@ class BaseItem(BaseModel):
 
 
 class AdminList(BaseModel):
-    list_admins:list
+    list_admins: list
 
-async def bug_catcher(coro, name_debug, dict_required=True, data_required=True,):
+
+class AddUser(BaseModel):
+    user_info: dict
+
+
+class RemoveAdmin(BaseModel):
+    user_id: int
+
+
+async def bug_catcher(coro, name_debug, dict_required=False, data_required=True,):
     try:
         data = await coro
         if data_required:
@@ -42,10 +51,37 @@ async def bug_catcher(coro, name_debug, dict_required=True, data_required=True,)
         log.debug(f'Ошибка /{name_debug}/\n{traceback.format_exc()}')
         return {'result': False}
 
+
 @app.get('/get_admins')
 async def get_admins():
-    return await bug_catcher(db_users.get_admins(), 'get_admins', dict_required=False)
+    return await bug_catcher(db_users.get_admins(), 'get_admins')
+
 
 @app.post('/add_admins/')
-async def add_admins(item:AdminList):
+async def add_admins(item: AdminList):
     return await bug_catcher(db_users.add_admins(list_id=item.list_admins), 'add_admins', data_required=False)
+
+
+@app.post('/add_user/')
+async def add_user(item: AddUser):
+    return await bug_catcher(db_users.add_user(user_info=item.user_info), 'add_user', data_required=False)
+
+
+@app.get('/get_users_not_admin/')
+async def get_users_not_admin():
+    return await bug_catcher(db_users.get_users_not_admin(), 'get_users_not_admin')
+
+
+@app.post('/remove_admin/')
+async def remove_admin(item: RemoveAdmin):
+    return await bug_catcher(db_users.remove_admin(user_id=item.user_id), 'remove_admin', data_required=False)
+
+
+@app.get('/get_columns_names/')
+async def get_columns_names():
+    return await bug_catcher(db_users.get_columns_names(), 'get_columns_names')
+
+
+@app.get('/get_all_users/')
+async def get_all_users():
+    return await bug_catcher(db_users.get_all_users(), 'get_all_users')

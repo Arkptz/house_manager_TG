@@ -1,11 +1,11 @@
 from dataclasses import dataclass
 
 @dataclass
-class AdminInfo:
+class UserInfo:
     name:str
     id:int
-    admin:bool
-    it:bool
-    electrical:bool
-    fireman:bool
-    engineer:bool
+    admin:bool=False
+    it:bool=False
+    electrical:bool=False
+    fireman:bool=False
+    engineer:bool=False

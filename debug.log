@@ -17,3 +17,212 @@
 04.12.2022 16:39:37:3937|INFO|TG.handlers on_startup line:15|send main menu
 04.12.2022 16:42:29:4229|INFO|TG.handlers on_startup line:15|send main menu
 04.12.2022 16:49:03:493|INFO|TG.handlers on_startup line:15|send main menu
+04.12.2022 17:12:27:1227|INFO|TG.handlers on_startup line:15|send main menu
+04.12.2022 17:12:36:1236|DEBUG|Api.api bug_catcher line:45|Ошибка /add_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 33, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 41, in add_user
+    user_info['name'], user_info['id'], user_info['admin'], '', '', '', ''])
+KeyError: 'name'
+
+04.12.2022 17:12:36:1236|DEBUG|Api.api bug_catcher line:45|Ошибка /add_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 33, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 41, in add_user
+    user_info['name'], user_info['id'], user_info['admin'], '', '', '', ''])
+KeyError: 'name'
+
+04.12.2022 17:12:36:1236|DEBUG|Api.api bug_catcher line:45|Ошибка /add_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 33, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 41, in add_user
+    user_info['name'], user_info['id'], user_info['admin'], '', '', '', ''])
+KeyError: 'name'
+
+04.12.2022 17:12:36:1236|DEBUG|Api.api bug_catcher line:45|Ошибка /add_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 33, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 41, in add_user
+    user_info['name'], user_info['id'], user_info['admin'], '', '', '', ''])
+KeyError: 'name'
+
+04.12.2022 17:12:36:1236|DEBUG|Api.api bug_catcher line:45|Ошибка /add_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 33, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 41, in add_user
+    user_info['name'], user_info['id'], user_info['admin'], '', '', '', ''])
+KeyError: 'name'
+
+04.12.2022 17:13:26:1326|INFO|TG.handlers on_startup line:15|send main menu
+04.12.2022 17:14:20:1420|INFO|TG.handlers on_startup line:15|send main menu
+04.12.2022 17:14:31:1431|DEBUG|Api.api bug_catcher line:45|Ошибка /add_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 33, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 40, in add_user
+    self.cursor.execute('INSERT INTO USER VALUES(???????)', [
+sqlite3.OperationalError: near "?": syntax error
+
+04.12.2022 17:14:31:1431|DEBUG|Api.api bug_catcher line:45|Ошибка /add_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 33, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 40, in add_user
+    self.cursor.execute('INSERT INTO USER VALUES(???????)', [
+sqlite3.OperationalError: near "?": syntax error
+
+04.12.2022 17:14:31:1431|DEBUG|Api.api bug_catcher line:45|Ошибка /add_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 33, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 40, in add_user
+    self.cursor.execute('INSERT INTO USER VALUES(???????)', [
+sqlite3.OperationalError: near "?": syntax error
+
+04.12.2022 17:14:31:1431|DEBUG|Api.api bug_catcher line:45|Ошибка /add_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 33, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 40, in add_user
+    self.cursor.execute('INSERT INTO USER VALUES(???????)', [
+sqlite3.OperationalError: near "?": syntax error
+
+04.12.2022 17:14:31:1431|DEBUG|Api.api bug_catcher line:45|Ошибка /add_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 33, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 40, in add_user
+    self.cursor.execute('INSERT INTO USER VALUES(???????)', [
+sqlite3.OperationalError: near "?": syntax error
+
+04.12.2022 17:14:57:1457|INFO|TG.handlers on_startup line:15|send main menu
+04.12.2022 17:18:20:1820|INFO|TG.handlers on_startup line:17|send main menu
+04.12.2022 17:33:13:3313|INFO|TG.handlers on_startup line:17|send main menu
+04.12.2022 17:34:03:343|INFO|TG.handlers on_startup line:17|send main menu
+04.12.2022 17:34:24:3424|INFO|TG.handlers on_startup line:17|send main menu
+04.12.2022 17:34:51:3451|INFO|TG.handlers on_startup line:17|send main menu
+04.12.2022 17:35:44:3544|INFO|TG.handlers on_startup line:17|send main menu
+04.12.2022 17:36:18:3618|INFO|TG.handlers on_startup line:17|send main menu
+04.12.2022 17:45:10:4510|INFO|TG.handlers on_startup line:17|send main menu
+04.12.2022 18:04:18:418|INFO|TG.handlers on_startup line:17|send main menu
+04.12.2022 18:05:08:58|INFO|TG.handlers on_startup line:17|send main menu
+04.12.2022 18:11:45:1145|INFO|TG.handlers on_startup line:17|send main menu
+04.12.2022 18:12:00:120|INFO|TG.handlers on_startup line:17|send main menu
+04.12.2022 18:12:15:1215|INFO|TG.handlers on_startup line:17|send main menu
+04.12.2022 18:16:26:1626|INFO|TG.handlers on_startup line:17|send main menu
+04.12.2022 18:16:46:1646|INFO|TG.handlers on_startup line:17|send main menu
+04.12.2022 18:17:23:1723|INFO|TG.handlers on_startup line:17|send main menu
+04.12.2022 18:18:25:1825|INFO|TG.handlers on_startup line:17|send main menu
+04.12.2022 18:24:53:2453|INFO|TG.handlers on_startup line:19|send main menu
+04.12.2022 18:25:44:2544|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 18:26:43:2643|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 18:36:01:361|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 18:38:08:388|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 18:38:49:3849|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 18:59:18:5918|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 18:59:26:5926|DEBUG|Api.api bug_catcher line:51|Ошибка /add_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 57, in add_user
+    self.cursor.execute('INSERT INTO USER VALUES(?,?,?)', [
+sqlite3.OperationalError: table USER has 7 columns but 3 values were supplied
+
+04.12.2022 18:59:26:5926|DEBUG|Api.api bug_catcher line:51|Ошибка /add_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 57, in add_user
+    self.cursor.execute('INSERT INTO USER VALUES(?,?,?)', [
+sqlite3.OperationalError: table USER has 7 columns but 3 values were supplied
+
+04.12.2022 18:59:26:5926|DEBUG|Api.api bug_catcher line:51|Ошибка /add_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 57, in add_user
+    self.cursor.execute('INSERT INTO USER VALUES(?,?,?)', [
+sqlite3.OperationalError: table USER has 7 columns but 3 values were supplied
+
+04.12.2022 18:59:26:5926|DEBUG|Api.api bug_catcher line:51|Ошибка /add_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 57, in add_user
+    self.cursor.execute('INSERT INTO USER VALUES(?,?,?)', [
+sqlite3.OperationalError: table USER has 7 columns but 3 values were supplied
+
+04.12.2022 18:59:26:5926|DEBUG|Api.api bug_catcher line:51|Ошибка /add_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 57, in add_user
+    self.cursor.execute('INSERT INTO USER VALUES(?,?,?)', [
+sqlite3.OperationalError: table USER has 7 columns but 3 values were supplied
+
+04.12.2022 19:00:03:03|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 19:28:52:2852|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 19:29:12:2912|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 19:29:32:2932|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 19:30:29:3029|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 19:31:48:3148|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 19:32:23:3223|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 19:48:13:4813|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 19:48:48:4848|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 19:49:36:4936|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 19:50:02:502|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 19:51:52:5152|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 19:52:07:527|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 19:52:40:5240|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 19:55:14:5514|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 20:39:49:3949|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 20:56:17:5617|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 20:56:34:5634|DEBUG|Api.api bug_catcher line:51|Ошибка /add_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 53, in add_user
+    self.cursor.execute('INSERT INTO User VALUES(?,?,?,?,?,?,?)', [
+sqlite3.ProgrammingError: Incorrect number of bindings supplied. The current statement uses 7, and there are 1 supplied.
+
+04.12.2022 20:56:34:5634|DEBUG|Api.api bug_catcher line:51|Ошибка /add_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 53, in add_user
+    self.cursor.execute('INSERT INTO User VALUES(?,?,?,?,?,?,?)', [
+sqlite3.ProgrammingError: Incorrect number of bindings supplied. The current statement uses 7, and there are 1 supplied.
+
+04.12.2022 20:56:34:5634|DEBUG|Api.api bug_catcher line:51|Ошибка /add_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 53, in add_user
+    self.cursor.execute('INSERT INTO User VALUES(?,?,?,?,?,?,?)', [
+sqlite3.ProgrammingError: Incorrect number of bindings supplied. The current statement uses 7, and there are 1 supplied.
+
+04.12.2022 20:56:34:5634|DEBUG|Api.api bug_catcher line:51|Ошибка /add_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 53, in add_user
+    self.cursor.execute('INSERT INTO User VALUES(?,?,?,?,?,?,?)', [
+sqlite3.ProgrammingError: Incorrect number of bindings supplied. The current statement uses 7, and there are 1 supplied.
+
+04.12.2022 20:56:34:5634|DEBUG|Api.api bug_catcher line:51|Ошибка /add_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 53, in add_user
+    self.cursor.execute('INSERT INTO User VALUES(?,?,?,?,?,?,?)', [
+sqlite3.ProgrammingError: Incorrect number of bindings supplied. The current statement uses 7, and there are 1 supplied.
+
+04.12.2022 20:57:04:574|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 20:57:48:5748|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 20:58:50:5850|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 20:59:07:597|INFO|TG.handlers on_startup line:20|send main menu
