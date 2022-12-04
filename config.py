@@ -11,8 +11,4 @@ BOT_TOKEN = '5849628959:AAHXJAHn63SjKVCVbnNIajGDauoDOFitrQw'
 db_path = f'{homeDir}\\db.db'
 host_url = '127.0.0.1'
 port = 8000
-count_buttons_for_one_page =20
-
-
-
-
+count_buttons_for_one_page = 20

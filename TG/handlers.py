@@ -8,9 +8,8 @@ import config as cfg
 from aiogram.types import Message
 from aiogram.dispatcher import FSMContext
 from aiogram.types import Message, CallbackQuery
-from .states import AdminAddAdmin, AdminAddUser,AdminDeleteAdmin, AdminRemotePermission
+from .states import AdminAddAdmin, AdminAddUser, AdminDeleteAdmin, AdminRemotePermission
 kbd = Keyboards_admin()
-
 
 
 async def on_startup(dp):
@@ -22,11 +21,15 @@ async def on_startup(dp):
     admins_list = [admin.id for admin in await http.get_admins()]
     for admin in admins_list:
         menu_markup = kbd.main_menu()
-        await bot.send_message(
-            chat_id=admin,
-            text='<b>Бот запущен.</b>',
-            reply_markup=menu_markup
-        )
+        try:
+            await bot.send_message(
+                chat_id=admin,
+                text='<b>Бот запущен.</b>',
+                reply_markup=menu_markup
+            )
+        except:
+            pass
+
 
 @dp.message_handler(commands=['start', 'menu'])
 async def start(msg: Message):
@@ -37,7 +40,8 @@ async def start(msg: Message):
         reply_markup=menu_markup
     )
 
-@dp.callback_query_handler(text='back_to_menu', state=[AdminAddUser.permission,AdminAddUser.name, AdminAddUser.id, AdminRemotePermission.id,])
+
+@dp.callback_query_handler(text='back_to_menu', state=[AdminAddUser.permission, AdminAddUser.name, AdminAddUser.id, AdminRemotePermission.user, ])
 async def back_to_menu(cq: CallbackQuery, state: FSMContext):
     msg = cq.message
     menu_markup = kbd.main_menu()

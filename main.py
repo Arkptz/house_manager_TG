@@ -4,10 +4,14 @@ import multiprocessing
 from time import sleep
 import asyncio
 
+
 def start_tg_bot():
     start_bot()
+
+
 def start_api():
     start_server()
+
 
 if __name__ == "__main__":
     t2 = multiprocessing.Process(target=start_api)
@@ -15,7 +19,8 @@ if __name__ == "__main__":
     t1 = multiprocessing.Process(target=start_tg_bot)
     t1.start()
     try:
-        while True:pass
+        while True:
+            pass
     except KeyboardInterrupt:
         t1.kill()
         t2.kill()

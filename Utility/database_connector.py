@@ -48,21 +48,34 @@ class UsersDatabaseConnector:
                     f'UPDATE User set admin = {True} WHERE id=?', [user_id])
         self.db.commit()
 
-
     async def add_user(self, user_info: dict):
-        self.cursor.execute('INSERT INTO User VALUES(?,?,?,?,?,?,?)', 
+        self.cursor.execute('INSERT INTO User VALUES(?,?,?,?,?,?,?)',
                             list(user_info.values()))
         self.db.commit()
 
-    async def get_users_not_admin(self,) -> list[tuple]:
-        ans = self.cursor.execute(
-            'SELECT * FROM User WHERE NOT admin').fetchall()
-        return ans
+    async def delete_user(self, user_id: int):
+        self.cursor.execute('DELETE FROM User WHERE id = ?', [user_id])
+        self.db.commit()
 
     async def get_all_users(self,) -> list[tuple]:
         ans = self.cursor.execute(
             'SELECT * FROM User').fetchall()
         return ans
+
+    async def get_user(self, user_id) -> tuple:
+        ans = self.cursor.execute(
+            'SELECT * FROM User WHERE id=?', [user_id]).fetchone()
+        return ans
+
+    async def update_user(self, user_info: dict):
+        _str = 'UPDATE User SET'
+        for key in user_info.keys():
+            if not (key in ['id', 'name']):
+                _str += f' {key}={user_info[key]},'
+        _str = _str[:-1]
+        _str += f" WHERE id = {user_info['id']}"
+        self.cursor.execute(_str)
+        self.db.commit()
 
 
 class FullBd:

@@ -33,19 +33,19 @@ class Http:
     async def add_user(self, user_info: dict) -> None:
         ans = await self.req('add_user/', data={'user_info': user_info}, method='POST')
 
-    async def get_users_not_admin(self,) -> list[UserInfo]:
-        ans = await self.req('get_users_not_admin/')
-        list_res = []
-        for i in ans:
-            list_res.append(UserInfo(*i))
-        return list_res
-
-    async def remove_admin(self, user_id: int) -> None:
-        ans = await self.req('remove_admin/', data={'user_id': user_id}, method='POST')
-
     async def get_columns_names(self,) -> list[str]:
         ans = await self.req('get_columns_names/')
         return ans
+
+    async def get_user(self, user_id: int) -> UserInfo:
+        ans = await self.req('get_user/', data={'user_id': user_id})
+        return UserInfo(*ans)
+
+    async def delete_user(self, user_id: int) -> None:
+        ans = await self.req('delete_user/', data={'user_id': user_id}, method='POST')
+
+    async def update_user(self, user_info: dict) -> None:
+        ans = await self.req('update_user/', data={'user_info': user_info}, method='POST')
 
     async def get_all_users(self,) -> list[UserInfo]:
         ans = await self.req('get_all_users/')

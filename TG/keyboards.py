@@ -81,7 +81,8 @@ class Keyboards_admin():
         markup.row(InlineKeyboardButton(text='♻️Фильтр',
                    callback_data='set_filter_'), *list_filters[:_slice])
         markup.row(*list_filters[_slice:])
-        markup.row(InlineKeyboardButton(text='------------------------------------------', callback_data='.....'))
+        markup.row(InlineKeyboardButton(
+            text='------------------------------------------', callback_data='.....'))
         markup.row(InlineKeyboardButton(text="👀Юзеры:", callback_data='users'))
 
         for i in range(0, len(select_users), 2):
@@ -96,7 +97,8 @@ class Keyboards_admin():
                 user1 = us_1_2[0]
                 markup.row(InlineKeyboardButton(text=f'{user1.name} (id: {user1.id})',
                                                 callback_data=f'select_user_{user1.id}'))
-        markup.row(InlineKeyboardButton(text='------------------------------------------', callback_data='.....'))
+        markup.row(InlineKeyboardButton(
+            text='------------------------------------------', callback_data='.....'))
         footer = []
         if page != 0:
             footer.append(InlineKeyboardButton(
@@ -110,10 +112,24 @@ class Keyboards_admin():
         return markup
 
     def give_role(self):
-        markup = InlineKeyboardMarkup()
-        for start in range(0, len(self.roles), 3):
-            lst = []
-            for role in self.roles[start:start+3]:
-                lst.append(InlineKeyboardButton(text=role, callback_data=f'give_role_{role}'))
-            markup.row(*lst)
+        lenght = ln = len(self.roles)
+        rw = ln//2 if ln % 2 == 0 else ln//2 + 1
+        markup = InlineKeyboardMarkup(row_width=rw)
+        for role in self.roles:
+            markup.insert(InlineKeyboardButton(
+                text=role, callback_data=f'give_role_{role}'))
+        return markup
+
+    def roles_user(self, user: UserInfo):
+        lenght = ln = len(self.roles)
+        rw = ln//2 if ln % 2 == 0 else ln//2 + 1
+        markup = InlineKeyboardMarkup(row_width=rw)
+        for role in self.roles:
+            val = getattr(user, role)
+            markup.insert(InlineKeyboardButton(
+                text=('🟢' if val else '') + role, callback_data=f'give_role_{role}'))
+
+        markup.row(InlineKeyboardButton(
+            text='❌Удалить пользователя', callback_data='delete_user'))
+        markup.row(self.btn_back_to_menu)
         return markup

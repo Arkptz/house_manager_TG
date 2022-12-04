@@ -226,3 +226,145 @@ sqlite3.ProgrammingError: Incorrect number of bindings supplied. The current sta
 04.12.2022 20:57:48:5748|INFO|TG.handlers on_startup line:20|send main menu
 04.12.2022 20:58:50:5850|INFO|TG.handlers on_startup line:20|send main menu
 04.12.2022 20:59:07:597|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 21:01:35:135|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 21:20:49:2049|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 21:21:26:2126|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 21:22:01:221|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 21:25:38:2538|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 21:26:51:2651|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 21:28:36:2836|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 21:28:57:2857|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 21:29:26:2926|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 21:30:14:3014|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 21:30:49:3049|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 21:31:13:3113|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 21:37:51:3751|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 21:38:23:3823|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 21:38:53:3853|INFO|TG.handlers on_startup line:19|send main menu
+04.12.2022 21:39:15:3915|INFO|TG.handlers on_startup line:19|send main menu
+04.12.2022 21:39:31:3931|INFO|TG.handlers on_startup line:19|send main menu
+04.12.2022 21:39:59:3959|INFO|TG.handlers on_startup line:19|send main menu
+04.12.2022 21:45:22:4522|INFO|TG.handlers on_startup line:19|send main menu
+04.12.2022 21:45:57:4557|INFO|TG.handlers on_startup line:19|send main menu
+04.12.2022 21:46:41:4641|INFO|TG.handlers on_startup line:19|send main menu
+04.12.2022 21:46:44:4644|DEBUG|Api.api bug_catcher line:51|Ошибка /update_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 77, in update_user
+    self.cursor.execute(_str)
+sqlite3.OperationalError: near "table": syntax error
+
+04.12.2022 21:46:44:4644|DEBUG|Api.api bug_catcher line:51|Ошибка /update_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 77, in update_user
+    self.cursor.execute(_str)
+sqlite3.OperationalError: near "table": syntax error
+
+04.12.2022 21:46:44:4644|DEBUG|Api.api bug_catcher line:51|Ошибка /update_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 77, in update_user
+    self.cursor.execute(_str)
+sqlite3.OperationalError: near "table": syntax error
+
+04.12.2022 21:46:44:4644|DEBUG|Api.api bug_catcher line:51|Ошибка /update_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 77, in update_user
+    self.cursor.execute(_str)
+sqlite3.OperationalError: near "table": syntax error
+
+04.12.2022 21:46:44:4644|DEBUG|Api.api bug_catcher line:51|Ошибка /update_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 77, in update_user
+    self.cursor.execute(_str)
+sqlite3.OperationalError: near "table": syntax error
+
+04.12.2022 21:46:47:4647|DEBUG|Api.api bug_catcher line:51|Ошибка /update_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 77, in update_user
+    self.cursor.execute(_str)
+sqlite3.OperationalError: near "table": syntax error
+
+04.12.2022 21:46:47:4647|DEBUG|Api.api bug_catcher line:51|Ошибка /update_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 77, in update_user
+    self.cursor.execute(_str)
+sqlite3.OperationalError: near "table": syntax error
+
+04.12.2022 21:46:47:4647|DEBUG|Api.api bug_catcher line:51|Ошибка /update_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 77, in update_user
+    self.cursor.execute(_str)
+sqlite3.OperationalError: near "table": syntax error
+
+04.12.2022 21:46:47:4647|DEBUG|Api.api bug_catcher line:51|Ошибка /update_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 77, in update_user
+    self.cursor.execute(_str)
+sqlite3.OperationalError: near "table": syntax error
+
+04.12.2022 21:46:47:4647|DEBUG|Api.api bug_catcher line:51|Ошибка /update_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 77, in update_user
+    self.cursor.execute(_str)
+sqlite3.OperationalError: near "table": syntax error
+
+04.12.2022 21:46:47:4647|DEBUG|Api.api bug_catcher line:51|Ошибка /update_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 77, in update_user
+    self.cursor.execute(_str)
+sqlite3.OperationalError: near "table": syntax error
+
+04.12.2022 21:46:47:4647|DEBUG|Api.api bug_catcher line:51|Ошибка /update_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 77, in update_user
+    self.cursor.execute(_str)
+sqlite3.OperationalError: near "table": syntax error
+
+04.12.2022 21:46:47:4647|DEBUG|Api.api bug_catcher line:51|Ошибка /update_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 77, in update_user
+    self.cursor.execute(_str)
+sqlite3.OperationalError: near "table": syntax error
+
+04.12.2022 21:46:47:4647|DEBUG|Api.api bug_catcher line:51|Ошибка /update_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 77, in update_user
+    self.cursor.execute(_str)
+sqlite3.OperationalError: near "table": syntax error
+
+04.12.2022 21:46:47:4647|DEBUG|Api.api bug_catcher line:51|Ошибка /update_user/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 77, in update_user
+    self.cursor.execute(_str)
+sqlite3.OperationalError: near "table": syntax error
+
+04.12.2022 21:47:49:4749|INFO|TG.handlers on_startup line:19|send main menu

@@ -30,7 +30,7 @@ class AddUser(BaseModel):
     user_info: dict
 
 
-class RemoveAdmin(BaseModel):
+class GetUser(BaseModel):
     user_id: int
 
 
@@ -67,16 +67,6 @@ async def add_user(item: AddUser):
     return await bug_catcher(db_users.add_user(user_info=item.user_info), 'add_user', data_required=False)
 
 
-@app.get('/get_users_not_admin/')
-async def get_users_not_admin():
-    return await bug_catcher(db_users.get_users_not_admin(), 'get_users_not_admin')
-
-
-@app.post('/remove_admin/')
-async def remove_admin(item: RemoveAdmin):
-    return await bug_catcher(db_users.remove_admin(user_id=item.user_id), 'remove_admin', data_required=False)
-
-
 @app.get('/get_columns_names/')
 async def get_columns_names():
     return await bug_catcher(db_users.get_columns_names(), 'get_columns_names')
@@ -85,3 +75,18 @@ async def get_columns_names():
 @app.get('/get_all_users/')
 async def get_all_users():
     return await bug_catcher(db_users.get_all_users(), 'get_all_users')
+
+
+@app.get('/get_user/')
+async def get_user(item: GetUser):
+    return await bug_catcher(db_users.get_user(item.user_id), 'get_user')
+
+
+@app.post('/delete_user/')
+async def delete_user(item: GetUser):
+    return await bug_catcher(db_users.delete_user(item.user_id), 'delete_user', data_required=False)
+
+
+@app.post('/update_user/')
+async def update_user(item: AddUser):
+    return await bug_catcher(db_users.update_user(item.user_info), 'update_user', data_required=False)

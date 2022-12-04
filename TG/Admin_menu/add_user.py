@@ -45,7 +45,7 @@ async def input_admin(cq: CallbackQuery, state: FSMContext):
     msg = cq.message
     role = cq.data.split('give_role_')[1]
     data = await state.get_data()
-    user = UserInfo(data['name'],data['id'])
+    user = UserInfo(data['name'], data['id'])
     setattr(user, role, True)
     await http.add_user(user.__dict__)
     await bot.edit_message_text(chat_id=msg.chat.id, message_id=msg.message_id, text=f'Пользователь {user.name} добавлен', reply_markup=kbd.main_menu())
