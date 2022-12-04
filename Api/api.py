@@ -6,17 +6,15 @@ import traceback
 import asyncio
 from typing import Coroutine
 from loguru import logger as log
-from ..classes import ConfigClass
-from ..database_connector import FullBd
+from config import host_url, port
+from Utility.database_connector import db_users
 
 
 app = FastAPI()
 
 
-def start_server(cf: ConfigClass):
-    global db
-    db = FullBd(cf)
-    uvicorn.run(app, host=cf.host_url, port=cf.port)
+def start_server():
+    uvicorn.run(app, host=host_url, port=port)
 
 
 class BaseItem(BaseModel):
@@ -24,9 +22,9 @@ class BaseItem(BaseModel):
     uid: str = None
 
 
-async def bug_catcher(coro: Coroutine, name_debug, dict_required=True, data_required=True):
+async def bug_catcher(coro: function, name_debug, dict_required=True, data_required=True):
     try:
-        data = await coro
+        data = coro()
         if data_required:
             if dict_required:
                 if type(data) == list:
@@ -41,4 +39,6 @@ async def bug_catcher(coro: Coroutine, name_debug, dict_required=True, data_requ
         log.debug(f'Ошибка /{name_debug}/\n{traceback.format_exc()}')
         return {'result': False}
 
-# Users part
+@app.get('/get_admins')
+async def get_admins():
+    return await bug_catcher(db_users.get_admins, 'get_admins', dict_required=False)

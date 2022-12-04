@@ -1,4 +1,4 @@
-from Parts.TG_Part import main
-import config
+from TG.bot import start_bot
 
-main.start_bot(config.cf)
+
+start_bot()

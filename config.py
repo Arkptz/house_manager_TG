@@ -1,5 +1,4 @@
 import os
-from Parts.classes import ConfigClass
 from aiogram import Bot, Dispatcher, executor
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 import asyncio
@@ -16,11 +15,4 @@ port = 8000
 
 
 
-cf = ConfigClass(admin_list=admin_list, bot_token=BOT_TOKEN, db_path=db_path, host_url=host_url, port=port)
-storage = MemoryStorage()
-loop = asyncio.get_event_loop()
-bot = Bot(cf.bot_token, parse_mode='HTML', disable_web_page_preview=True)
-dp = Dispatcher(bot, storage=storage, loop=loop)
-cf.dp = dp
-cf.bot = bot
 
