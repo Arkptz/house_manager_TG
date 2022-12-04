@@ -21,10 +21,14 @@ class Http:
                 pass
 
     async def get_admins(self,) ->list[AdminInfo]:
-        ans = await self.req('/get_admins/')
+        ans = await self.req('get_admins/')
         list_res = []
         for i in ans:
             list_res.append(AdminInfo(*i))
         return list_res
+    
+
+    async def add_admins(self, list_admins:list) -> None:
+        ans = await self.req('add_admins/', data={'list_admins':list_admins}, method='POST')
 
 http = Http()

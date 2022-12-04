@@ -17,5 +17,5 @@ async def test(msg: Message):
 
 
 def start_bot():
-    from .handlers import on_startup
+    from .handlers import dp, on_startup
     executor.start_polling(dp, on_startup=on_startup)

@@ -26,5 +26,10 @@ class Keyboards_admin():
         delete_permission = InlineKeyboardButton(text='Забрать права у пользователя', callback_data='admin_delete_permission')
         markup.add(add_user, add_admin, remove_admin, add_permission, delete_permission)
         return markup
-        
+    def give_admin(self):
+        markup = InlineKeyboardMarkup(row_width=2)
+        yes = InlineKeyboardButton(text='Да',callback_data= 'button_submit_yes')
+        no = InlineKeyboardButton(text='Нет',callback_data= 'button_submit_no')
+        markup.add(yes, no,)
+        return markup
 

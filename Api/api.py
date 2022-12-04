@@ -22,9 +22,12 @@ class BaseItem(BaseModel):
     uid: str = None
 
 
-async def bug_catcher(coro: function, name_debug, dict_required=True, data_required=True):
+class AdminList(BaseModel):
+    list_admins:list
+
+async def bug_catcher(coro, name_debug, dict_required=True, data_required=True,):
     try:
-        data = coro()
+        data = await coro
         if data_required:
             if dict_required:
                 if type(data) == list:
@@ -41,4 +44,8 @@ async def bug_catcher(coro: function, name_debug, dict_required=True, data_requi
 
 @app.get('/get_admins')
 async def get_admins():
-    return await bug_catcher(db_users.get_admins, 'get_admins', dict_required=False)
+    return await bug_catcher(db_users.get_admins(), 'get_admins', dict_required=False)
+
+@app.post('/add_admins/')
+async def add_admins(item:AdminList):
+    return await bug_catcher(db_users.add_admins(list_id=item.list_admins), 'add_admins', data_required=False)

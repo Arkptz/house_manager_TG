@@ -22,13 +22,23 @@ class UsersDatabaseConnector:
                                 engineer BOOLEAN
                                 )''')
         self.db.commit()
-    def get_admins(self,) -> list[tuple]:
+
+    async def get_admins(self,) -> list[tuple]:
         ans = self.cursor.execute('SELECT * FROM User WHERE admin').fetchall()
         return ans
-    def add_admins(self,list_id:list) -> None:
+
+    async def add_admins(self, list_id: list) -> None:
         for user_id in list_id:
-            self.cursor.execute('INSERT INTO User (id, admin) VALUES(?,?)', [user_id, True])
+            data = self.cursor.execute(
+                'SELECT * FROM User WHERE id=?', [user_id]).fetchall()
+            if len(data) == 0:
+                self.cursor.execute(
+                    'INSERT INTO User (id, admin) VALUES(?,?)', [user_id, True])
         self.db.commit()
+
+    async def add_user(self, user_info: dict):
+        self.cursor.execute('INSERT INTO USER VALUES(???????)', [
+                            user_info['name'], user_info['id'], user_info['admin'], '', '', '', ''])
 
 
 class FullBd:
