@@ -7,8 +7,7 @@ import asyncio
 from typing import Coroutine
 from loguru import logger as log
 from config import host_url, port
-from Utility.database_connector import db_users
-
+from Utility.database_connector import db_users, db_house
 
 app = FastAPI()
 
@@ -34,6 +33,15 @@ class GetUser(BaseModel):
     user_id: int
 
 
+class NewTable(BaseModel):
+    name_table:str
+    args_list:list
+
+class AddTranslate(BaseModel):
+    original:str
+    translate:str
+
+
 async def bug_catcher(coro, name_debug, dict_required=False, data_required=True,):
     try:
         data = await coro
@@ -51,7 +59,7 @@ async def bug_catcher(coro, name_debug, dict_required=False, data_required=True,
         log.debug(f'Ошибка /{name_debug}/\n{traceback.format_exc()}')
         return {'result': False}
 
-
+#users
 @app.get('/get_admins')
 async def get_admins():
     return await bug_catcher(db_users.get_admins(), 'get_admins')
@@ -90,3 +98,20 @@ async def delete_user(item: GetUser):
 @app.post('/update_user/')
 async def update_user(item: AddUser):
     return await bug_catcher(db_users.update_user(item.user_info), 'update_user', data_required=False)
+
+
+@app.get('/get_name_tables/')
+async def get_name_tables():
+    return await bug_catcher(db_users.get_name_tables(), 'get_name_tables')
+
+
+
+
+
+
+#houses
+@app.post('/create_new_table/')
+async def create_new_table(item: NewTable):
+    return await bug_catcher(db_house.create_new_table(name_table=item.name_table, args_list=item.args_list),
+     'create_new_table', data_required=False)
+

@@ -1,20 +1,34 @@
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from Utility.classes import UserInfo
+from Api.http_api import http
 from config import count_buttons_for_one_page as cbfop
+from .houses_and_roles import houses as hs, roles as rl
 
 
 class Keyboards_User:
-
+    houses = hs
+    roles = rl
     def __init__(self):
         self.btn_back_to_menu = InlineKeyboardButton(
-            text='↩️Back to menu',
+            text='↩️Вернуться в меню',
             callback_data='back_to_menu'
         )
 
+    def main_menu(self,user:UserInfo):
+        markup = InlineKeyboardMarkup(row_width=3)
+        for role in self.roles:
+                if getattr(user, role):
+                    role_user = role
+        for house in self.houses:
+            if role_user in house:
+                name_house = house.replace(f'_{role_user}', '')
+                markup.insert(InlineKeyboardButton(text=name_house,
+                                                     callback_data=f'select_house_{house}'))
+        return markup
 
 class Keyboards_admin():
     users: list[UserInfo]
-    roles: list[str]
+    roles = rl
     filters: str = ''
 
     def __init__(self):
@@ -45,6 +59,7 @@ class Keyboards_admin():
         # markup.add(add_user, add_admin, remove_admin,
         #            add_permission, delete_permission)
         markup.add(add_user, add_permission)
+        markup.row(InlineKeyboardButton('Добавить новый дом', callback_data='add_new_house'))
         return markup
 
     def give_admin(self) -> InlineKeyboardMarkup:
@@ -131,5 +146,13 @@ class Keyboards_admin():
 
         markup.row(InlineKeyboardButton(
             text='❌Удалить пользователя', callback_data='delete_user'))
+        markup.row(self.btn_back_to_menu)
+        return markup
+    
+    def approve_house(self, ):
+        markup = InlineKeyboardMarkup(row_width=2)
+        markup.insert(InlineKeyboardButton(text='✅Подтвердить', callback_data='add_house_approve'))
+        markup.insert(InlineKeyboardButton(text='🛠Изменить пункты проверок', callback_data='add_house_replace'))
+
         markup.row(self.btn_back_to_menu)
         return markup

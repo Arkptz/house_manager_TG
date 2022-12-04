@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from aiogram.types import Message
 
 @dataclass
 class UserInfo:
@@ -9,3 +10,7 @@ class UserInfo:
     electrical:bool=False
     fireman:bool=False
     engineer:bool=False
+
+@dataclass
+class TempData:
+    msg:Message=None

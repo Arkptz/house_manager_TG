@@ -35,7 +35,6 @@ async def input_id(msg: Message, state: FSMContext):
         return ''
 
     await state.update_data(id=msg.text)
-    kbd.roles = await http.get_columns_names()
     await bot.send_message(msg.chat.id, 'Какую роль выдать пользователю?', reply_markup=kbd.give_role())
     await AdminAddUser.next()
 

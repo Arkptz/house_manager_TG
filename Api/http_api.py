@@ -19,7 +19,7 @@ class Http:
                     return json['data']
             except:
                 pass
-
+    #users
     async def get_admins(self,) -> list[UserInfo]:
         ans = await self.req('get_admins/')
         list_res = []
@@ -41,6 +41,10 @@ class Http:
         ans = await self.req('get_user/', data={'user_id': user_id})
         return UserInfo(*ans)
 
+    async def get_name_tables(self) -> list[str]:
+        ans = await self.req('get_name_tables/')
+        return ans
+
     async def delete_user(self, user_id: int) -> None:
         ans = await self.req('delete_user/', data={'user_id': user_id}, method='POST')
 
@@ -53,6 +57,12 @@ class Http:
         for i in ans:
             list_res.append(UserInfo(*i))
         return list_res
+
+
+
+    #houses
+    async def create_new_table(self, name_table:str, args_list:list,) -> None:
+        ans = await self.req('create_new_table/', data={'name_table': name_table, 'args_list':args_list}, method='POST')
 
 
 http = Http()

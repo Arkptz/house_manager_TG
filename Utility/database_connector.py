@@ -21,9 +21,19 @@ class UsersDatabaseConnector:
                                 fireman BOOLEAN,
                                 engineer BOOLEAN
                                 )''')
+        self.cursor.execute('''CREATE TABLE IF NOT EXISTS Основа_епт (
+                                original TEXT,
+                                translate TEXT
+                                )''')
+        self.cursor.execute('''CREATE TABLE IF NOT EXISTS dop_house_it (
+                                date timestamp,
+                                tv TEXT,
+                                radio TEXT,
+                                inernet TEXT
+                                )''')
         self.db.commit()
 
-    async def get_columns_names(self,) -> list[str]:
+    def get_columns_names(self,) -> list[str]:
         cols = self.cursor.execute('''PRAGMA table_info(User) ''').fetchall()
         cols_res = []
         for i in cols:
@@ -77,6 +87,29 @@ class UsersDatabaseConnector:
         self.cursor.execute(_str)
         self.db.commit()
 
+    def get_name_tables(self,) -> list[str]:
+        ans = self.cursor.execute(
+            '''SELECT name FROM sqlite_master WHERE type='table';''').fetchall()
+        return [i[0] for i in ans]
+
+
+class DbHouse:
+
+
+    def __init__(self, connect: sl.Connection, cursor: sl.Cursor):
+        self.db = connect
+        self.cursor = cursor
+
+
+    async def create_new_table(self, name_table:str, args_list:list, ):
+        _str = f'CREATE TABLE IF NOT EXISTS {name_table} ( date timestamp,'
+        for i in args_list:
+            _str += f'{i} TEXT,'
+        _str = _str[:-1]
+        _str += ')'
+        self.cursor.execute(_str)
+        self.db.commit()
+
 
 class FullBd:
 
@@ -84,8 +117,10 @@ class FullBd:
         self.connect = sl.connect(db_path)
         self.cursor = sl.Cursor(self.connect)
         self.db_users = UsersDatabaseConnector(self.connect, self.cursor)
+        self.db_house = DbHouse(self.connect, self.cursor)
         self.db_users.create_table()
 
 
 db = FullBd()
 db_users = db.db_users
+db_house = db.db_house

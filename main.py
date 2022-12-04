@@ -26,3 +26,6 @@ if __name__ == "__main__":
         t2.kill()
     except:
         pass
+
+# from Utility.database_connector import db_users
+# print(asyncio.run(db_users.get_name_tables()))

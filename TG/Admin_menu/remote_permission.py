@@ -16,7 +16,6 @@ async def add_admin(cq: CallbackQuery):
     users = await http.get_all_users()
     kbd.filters = ''
     kbd.users = users
-    kbd.roles = await http.get_columns_names()
     await bot.edit_message_text(chat_id=msg.chat.id, message_id=msg.message_id, text='Выберите пользователя:', reply_markup=kbd.generate_page_users_with_filter())
     await AdminRemotePermission.user.set()
 

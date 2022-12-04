@@ -368,3 +368,56 @@ Traceback (most recent call last):
 sqlite3.OperationalError: near "table": syntax error
 
 04.12.2022 21:47:49:4749|INFO|TG.handlers on_startup line:19|send main menu
+04.12.2022 21:58:28:5828|INFO|TG.handlers on_startup line:19|send main menu
+04.12.2022 23:16:17:1617|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 23:28:47:2847|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 23:29:06:296|DEBUG|Api.api bug_catcher line:51|Ошибка /get_columns_names/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+TypeError: object list can't be used in 'await' expression
+
+04.12.2022 23:29:06:296|DEBUG|Api.api bug_catcher line:51|Ошибка /get_columns_names/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+TypeError: object list can't be used in 'await' expression
+
+04.12.2022 23:29:06:296|DEBUG|Api.api bug_catcher line:51|Ошибка /get_columns_names/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+TypeError: object list can't be used in 'await' expression
+
+04.12.2022 23:29:06:296|DEBUG|Api.api bug_catcher line:51|Ошибка /get_columns_names/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+TypeError: object list can't be used in 'await' expression
+
+04.12.2022 23:29:06:296|DEBUG|Api.api bug_catcher line:51|Ошибка /get_columns_names/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 39, in bug_catcher
+    data = await coro
+TypeError: object list can't be used in 'await' expression
+
+04.12.2022 23:30:25:3025|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 23:31:08:318|INFO|TG.handlers on_startup line:20|send main menu
+04.12.2022 23:32:32:3232|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 00:05:30:530|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 00:48:28:4828|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 00:49:31:4931|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 00:52:23:5223|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 00:53:27:5327|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 00:54:42:5442|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 00:56:58:5658|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 00:58:05:585|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 00:59:12:5912|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 01:04:47:447|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 01:05:38:538|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 01:06:15:615|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 01:07:40:740|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 01:09:13:913|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 01:10:06:106|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 01:11:11:1111|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 01:12:19:1219|INFO|TG.handlers on_startup line:20|send main menu
