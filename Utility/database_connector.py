@@ -92,7 +92,7 @@ class DbHouse:
         self.cursor = cursor
 
     async def create_new_table(self, name_table: str, args_list: list, ):
-        _str = f'CREATE TABLE IF NOT EXISTS {name_table} ( date timestamp, id int,'
+        _str = f'CREATE TABLE IF NOT EXISTS {name_table} ( date TEXT, id int,'
         for i in args_list:
             _str += f'{i} TEXT,'
         _str = _str[:-1]
@@ -101,15 +101,15 @@ class DbHouse:
         self.db.commit()
 
     async def get_report_with_current_date(self, user_id: int, name_table: str) -> Union[dict[str, str], bool]:
-        date = datetime.now().date()
+        date = str(datetime.now().date())
         ans = self.cursor.execute(
-            f'SELECT * FROM {name_table} WHERE id={user_id} AND date={date}').fetchone()
+            f"SELECT * FROM {name_table} WHERE id={user_id} AND date='{date}'").fetchone()
         cols = await self.get_name_cols_for_table(name_table)
         if ans:
             ans = list(ans)[2:]
         else:
             ans = []
-            _str = f'INSERT INTO {name_table} VALUES({date}, {user_id},'
+            _str = f"INSERT INTO {name_table} VALUES('{date}', {user_id},"
             for i in cols:
                 ans.append('')
                 _str += "'',"
@@ -133,14 +133,14 @@ class DbHouse:
         return cols_res
 
     async def update_report(self, user_id: int, name_table: str, tasks: dict) -> None:
-        date = datetime.now().date()
+        date = str(datetime.now().date())
         ans = self.cursor.execute(
-            f'SELECT * FROM {name_table} WHERE id={user_id} AND date={date}').fetchone()
+            f"SELECT * FROM {name_table} WHERE id={user_id} AND date='{date}'").fetchone()
         _str = f'UPDATE {name_table} SET'
         for key in tasks.keys():
             _str += f" {key}='{tasks[key]}',"
         _str = _str[:-1]
-        _str += f" WHERE id = {user_id} AND date={date}"
+        _str += f" WHERE id = {user_id} AND date='{date}'"
         self.cursor.execute(_str)
         self.db.commit()
 
