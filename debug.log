@@ -1020,3 +1020,5 @@ sqlite3.OperationalError: no such column: id
 05.12.2022 17:31:43:3143|INFO|TG.handlers on_startup line:20|send main menu
 05.12.2022 17:32:37:3237|INFO|TG.handlers on_startup line:20|send main menu
 05.12.2022 17:33:28:3328|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 17:39:50:3950|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 17:47:17:4717|INFO|TG.handlers on_startup line:20|send main menu
