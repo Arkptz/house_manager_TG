@@ -72,6 +72,6 @@ async def give_role(cq: CallbackQuery, state: FSMContext):
 async def delete_user(cq: CallbackQuery, state: FSMContext):
     msg = cq.message
     data = await state.get_data()
-    await http.delete_user(data['id'])
+    await http.delete_user(data['user_id'])
     await state.finish()
     await bot.edit_message_text(chat_id=msg.chat.id, message_id=msg.message_id, text='Админ меню:', reply_markup=kbd.main_menu())
