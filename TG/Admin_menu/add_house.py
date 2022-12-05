@@ -2,6 +2,7 @@ from ..bot import bot, dp
 from ..keyboards import Keyboards_admin
 from ..states import AddHouse
 from ..houses_and_roles import houses, roles
+from ..decors import admin
 from Api.http_api import http
 from Utility.classes import UserInfo, TempData
 from aiogram.types import Message, CallbackQuery
@@ -13,6 +14,7 @@ kbd = Keyboards_admin()
 
 
 @dp.callback_query_handler(text='add_new_house')
+@admin
 async def add_house(cq: CallbackQuery):
     msg = cq.message
     await bot.edit_message_text(chat_id=msg.chat.id, message_id=msg.message_id, text='Введите уникальное название дома (без пробелов):\n'
@@ -21,6 +23,7 @@ async def add_house(cq: CallbackQuery):
 
 
 @dp.message_handler(state=AddHouse.name)
+@admin
 async def input_name(msg: Message, state: FSMContext):
     ans = re.findall('^[А-Яа-яA-Za-z0-9_-]{3,50}$', msg.text)
     if not ans:
@@ -33,6 +36,7 @@ async def input_name(msg: Message, state: FSMContext):
 
 
 @dp.callback_query_handler(Text(startswith="give_role_"), state=AddHouse.role)
+@admin
 async def input_admin(cq: CallbackQuery, state: FSMContext):
     msg = cq.message
     role = cq.data.split('give_role_')[1]
@@ -53,6 +57,7 @@ async def input_admin(cq: CallbackQuery, state: FSMContext):
 
 
 @dp.message_handler(state=AddHouse.args_list)
+@admin
 async def input_args(msg: Message, state: FSMContext):
     ans = re.findall(
         '^([А-Яа-яA-Za-z0-9_-]{3,50}\,){0,500}([А-Яа-яA-Za-z0-9_-]{1,50})$', msg.text)
@@ -72,6 +77,7 @@ async def input_args(msg: Message, state: FSMContext):
 
 
 @dp.callback_query_handler(Text(startswith="add_house_"), state=AddHouse.approve)
+@admin
 async def approve(cq: CallbackQuery, state: FSMContext):
     msg = cq.message
     doing = cq.data.split('add_house_')[1]

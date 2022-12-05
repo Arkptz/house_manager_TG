@@ -38,16 +38,16 @@ class UsersDatabaseConnector:
         ans = self.cursor.execute('SELECT * FROM User WHERE admin').fetchall()
         return ans
 
-    async def add_admins(self, list_id: list) -> None:
-        for user_id in list_id:
+    async def add_admins(self, list_users: list[dict]) -> None:
+        for user in list_users:
             data = self.cursor.execute(
-                'SELECT * FROM User WHERE id=?', [user_id]).fetchall()
+                'SELECT * FROM User WHERE id=?', [user['id']]).fetchall()
             if len(data) == 0:
-                self.cursor.execute(
-                    'INSERT INTO User (id, admin) VALUES(?,?)', [user_id, True])
+                self.cursor.execute('INSERT INTO User VALUES(?,?,?,?,?,?,?)',
+                            list(user.values()))
             else:
                 self.cursor.execute(
-                    f'UPDATE User set admin = {True} WHERE id=?', [user_id])
+                    f'UPDATE User set admin = {True} WHERE id=?', [user['id']])
         self.db.commit()
 
     async def add_user(self, user_info: dict):

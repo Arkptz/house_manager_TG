@@ -3,6 +3,7 @@ from aiogram.types import Message, CallbackQuery
 from aiogram.dispatcher.filters import Text
 from aiogram.dispatcher import FSMContext
 from ..bot import bot, dp
+from ..decors import admin
 from ..keyboards import Keyboards_admin
 from ..states import AdminAddUser
 from Api.http_api import http
@@ -13,6 +14,7 @@ kbd = Keyboards_admin()
 
 
 @dp.callback_query_handler(text='admin_add_user')
+@admin
 async def admin_settings(cq: CallbackQuery):
     msg = cq.message
     await bot.edit_message_text(chat_id=msg.chat.id, message_id=msg.message_id, text='Введите имя пользователя:', reply_markup=kbd.back_markup())
@@ -20,6 +22,7 @@ async def admin_settings(cq: CallbackQuery):
 
 
 @dp.message_handler(state=AdminAddUser.name)
+@admin
 async def input_name(msg: Message, state: FSMContext):
     await state.update_data(name=msg.text)
     await bot.send_message(msg.chat.id, 'Введите id пользователя:', reply_markup=kbd.back_markup())
@@ -27,6 +30,7 @@ async def input_name(msg: Message, state: FSMContext):
 
 
 @dp.message_handler(state=AdminAddUser.id)
+@admin
 async def input_id(msg: Message, state: FSMContext):
     try:
         id = int(msg.text)

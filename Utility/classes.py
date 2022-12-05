@@ -15,4 +15,6 @@ class UserInfo:
 
 @dataclass
 class TempData:
-    msg: Message = None
+    name_table:str=None
+    tasks:str = None
+    role:str = None

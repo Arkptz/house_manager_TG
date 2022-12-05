@@ -8,31 +8,38 @@ from .houses_and_roles import houses as hs, roles as rl
 class Keyboards_User:
     houses = hs
     roles = rl
-    tasks: list
-    name_table: str
-
     def __init__(self):
         self.btn_back_to_menu = InlineKeyboardButton(
             text='↩️Вернуться в меню',
             callback_data='back_to_menu'
         )
 
-    def main_menu(self, user: UserInfo):
+    def main_menu(self, user: UserInfo = None, role_user: str = False):
         markup = InlineKeyboardMarkup(row_width=3)
-        for role in self.roles:
-            if getattr(user, role):
-                role_user = role
-        for house in self.houses:
-            if role_user in house:
-                name_house = house.replace(f'_{role_user}', '')
-                markup.insert(InlineKeyboardButton(text=name_house,
-                                                   callback_data=f'select_house_{house}'))
-        return markup
+        roles_user = []
+        if not role_user:
+            for role in self.roles:
+                if getattr(user, role):
+                    roles_user.append(role)
+        if (len(roles_user) == 1) or role_user:
+            if not role_user:
+                role_user = roles_user[0]
+            for house in self.houses:
+                if role_user in house:
+                    name_house = house.replace(f'_{role_user}', '')
+                    markup.insert(InlineKeyboardButton(text=name_house,
+                                                       callback_data=f'select_house_{house}'))
+            return [markup, 'houses']
+        else:
+            for role in roles_user:
+                markup.insert(InlineKeyboardButton(text=role,
+                                                   callback_data=f'select_role_{role}'))
+            return [markup, role_user]
 
-    def tasks_kbd(self, current_report: dict[str, str], page=0):
+    def tasks_kbd(self, tasks:list, current_report: dict[str, str], page=0):
         markup = InlineKeyboardMarkup(row_width=3)
         start = page * ctfop
-        select_tasks = self.tasks[start:start+ctfop]
+        select_tasks = tasks[start:start+ctfop]
         for task in select_tasks:
             lst_buttons = []
             task_res = current_report[task]
@@ -71,7 +78,6 @@ class Keyboards_User:
 class Keyboards_admin():
     users: list[UserInfo]
     roles = rl
-    filters: str = ''
 
     def __init__(self):
         self.btn_back_to_menu = InlineKeyboardButton(
@@ -114,19 +120,19 @@ class Keyboards_admin():
         markup.row(self.btn_back_to_menu)
         return markup
 
-    def _filter_users(self,) -> list[UserInfo]:
+    def _filter_users(self, filters) -> list[UserInfo]:
         new_list = []
         for user in self.users:
             for role in self.roles:
-                if self.filters == role and getattr(user, role):
+                if filters == role and getattr(user, role):
                     new_list.append(user)
         return new_list
 
-    def generate_page_users_with_filter(self, page=0) -> InlineKeyboardMarkup:
+    def generate_page_users_with_filter(self, page=0, filters='') -> InlineKeyboardMarkup:
         start = page * cbfop
         users = self.users
-        if self.filters != '':
-            users = self._filter_users()
+        if filters != '':
+            users = self._filter_users(filters)
 
         select_users = users[start: start + cbfop]
         markup = InlineKeyboardMarkup()
@@ -134,7 +140,7 @@ class Keyboards_admin():
         list_filters = []
         for i in self.roles:
             list_filters.append(InlineKeyboardButton(
-                text=('🟢' if self.filters == i else '') + i, callback_data=f'set_filter_{i}'))
+                text=('🟢' if filters == i else '') + i, callback_data=f'set_filter_{i}'))
         _slice = len(list_filters) // 2
         markup.row(InlineKeyboardButton(text='♻️Фильтр',
                    callback_data='set_filter_'), *list_filters[:_slice])
