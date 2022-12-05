@@ -34,13 +34,22 @@ class GetUser(BaseModel):
 
 
 class NewTable(BaseModel):
-    name_table:str
-    args_list:list
+    name_table: str
+    args_list: list
+
 
 class AddTranslate(BaseModel):
-    original:str
-    translate:str
+    original: str
+    translate: str
 
+
+class GetReport(BaseModel):
+    user_id:int
+    name_table: str
+
+
+class GetCols(BaseModel):
+    name_table: str
 
 async def bug_catcher(coro, name_debug, dict_required=False, data_required=True,):
     try:
@@ -59,7 +68,9 @@ async def bug_catcher(coro, name_debug, dict_required=False, data_required=True,
         log.debug(f'Ошибка /{name_debug}/\n{traceback.format_exc()}')
         return {'result': False}
 
-#users
+# users
+
+
 @app.get('/get_admins')
 async def get_admins():
     return await bug_catcher(db_users.get_admins(), 'get_admins')
@@ -105,13 +116,19 @@ async def get_name_tables():
     return await bug_catcher(db_users.get_name_tables(), 'get_name_tables')
 
 
-
-
-
-
-#houses
+# houses
 @app.post('/create_new_table/')
 async def create_new_table(item: NewTable):
     return await bug_catcher(db_house.create_new_table(name_table=item.name_table, args_list=item.args_list),
-     'create_new_table', data_required=False)
+                             'create_new_table', data_required=False)
 
+@app.get('/get_report_with_current_date/')
+async def get_report_with_current_date(item: GetReport):
+    return await bug_catcher(db_house.get_report_with_current_date(item.user_id, item.name_table),
+                             'get_report_with_current_date')
+
+
+@app.get('/get_name_cols_for_table/')
+async def get_name_cols_for_table(item: GetCols):
+    return await bug_catcher(db_house.get_name_cols_for_table(item.name_table),
+                             'get_name_cols_for_table')

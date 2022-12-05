@@ -52,14 +52,15 @@ async def start(msg: Message):
                 reply_markup=menu_markup
             )
 
+
 @dp.callback_query_handler(text='back_to_menu',
-                             state=[AdminAddUser.permission,
-                              AdminAddUser.name,
-                               AdminAddUser.id,
-                                AdminRemotePermission.user,
-                                AddHouse.name,
-                                AddHouse.role,
-                                AddHouse.args_list ])
+                           state=[AdminAddUser.permission,
+                                  AdminAddUser.name,
+                                  AdminAddUser.id,
+                                  AdminRemotePermission.user,
+                                  AddHouse.name,
+                                  AddHouse.role,
+                                  AddHouse.args_list, AddHouse.approve])
 async def back_to_menu(cq: CallbackQuery, state: FSMContext):
     msg = cq.message
     user_id = msg.chat.id

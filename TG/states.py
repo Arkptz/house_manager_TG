@@ -26,8 +26,13 @@ class AdminRemotePermission(StatesGroup):
     user = State()
     permission = State()
 
+
 class AddHouse(StatesGroup):
     name = State()
     role = State()
     args_list = State()
     approve = State()
+
+class Report(StatesGroup):
+    house = State()
+    tasks = State()

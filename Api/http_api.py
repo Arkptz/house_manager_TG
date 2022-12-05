@@ -19,7 +19,8 @@ class Http:
                     return json['data']
             except:
                 pass
-    #users
+    # users
+
     async def get_admins(self,) -> list[UserInfo]:
         ans = await self.req('get_admins/')
         list_res = []
@@ -58,11 +59,19 @@ class Http:
             list_res.append(UserInfo(*i))
         return list_res
 
+    # houses
+    async def create_new_table(self, name_table: str, args_list: list,) -> None:
+        ans = await self.req('create_new_table/', data={'name_table': name_table, 'args_list': args_list}, method='POST')
 
 
-    #houses
-    async def create_new_table(self, name_table:str, args_list:list,) -> None:
-        ans = await self.req('create_new_table/', data={'name_table': name_table, 'args_list':args_list}, method='POST')
+    async def get_report_with_current_date(self,  user_id:int, name_table:str) -> Union[list[str], bool]:
+        ans = await self.req('get_report_with_current_date/', data={'user_id': user_id, 'name_table': name_table})
+        return ans
+    
+
+    async def get_name_cols_for_table(self, name_table:str) -> list[str]:
+        ans = await self.req('get_name_cols_for_table/', data={'name_table': name_table})
+        return ans
 
 
 http = Http()

@@ -1,5 +1,7 @@
 import sqlite3 as sl
 from config import db_path
+from datetime import datetime
+from typing import Union
 import os
 
 
@@ -20,16 +22,6 @@ class UsersDatabaseConnector:
                                 electrical BOOLEAN,
                                 fireman BOOLEAN,
                                 engineer BOOLEAN
-                                )''')
-        self.cursor.execute('''CREATE TABLE IF NOT EXISTS Основа_епт (
-                                original TEXT,
-                                translate TEXT
-                                )''')
-        self.cursor.execute('''CREATE TABLE IF NOT EXISTS dop_house_it (
-                                date timestamp,
-                                tv TEXT,
-                                radio TEXT,
-                                inernet TEXT
                                 )''')
         self.db.commit()
 
@@ -95,21 +87,35 @@ class UsersDatabaseConnector:
 
 class DbHouse:
 
-
     def __init__(self, connect: sl.Connection, cursor: sl.Cursor):
         self.db = connect
         self.cursor = cursor
 
-
-    async def create_new_table(self, name_table:str, args_list:list, ):
-        _str = f'CREATE TABLE IF NOT EXISTS {name_table} ( date timestamp,'
+    async def create_new_table(self, name_table: str, args_list: list, ):
+        _str = f'CREATE TABLE IF NOT EXISTS {name_table} ( date timestamp, id int,'
         for i in args_list:
             _str += f'{i} TEXT,'
         _str = _str[:-1]
         _str += ')'
         self.cursor.execute(_str)
         self.db.commit()
+    
+    async def get_report_with_current_date(self, user_id:int, name_table:str) -> Union[list[str], bool]:
+        date = datetime.now().date()
+        ans = self.cursor.execute(f'SELECT * FROM {name_table} WHERE id={user_id} AND WHERE date={date}').fetchone()
+        if ans:
+            return list(ans)[2:]
+        else:
+            return False
 
+    async def get_name_cols_for_table(self, name_table:str) -> list[str]:
+        cols = self.cursor.execute(f'''PRAGMA table_info({name_table}) ''').fetchall()
+        cols_res = []
+        for i in cols:
+            col_name = i[1]
+            if not col_name in ['date', 'id']:
+                cols_res.append(col_name)
+        return cols_res
 
 class FullBd:
 

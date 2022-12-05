@@ -16,7 +16,7 @@ kbd = Keyboards_admin()
 async def add_house(cq: CallbackQuery):
     msg = cq.message
     await bot.edit_message_text(chat_id=msg.chat.id, message_id=msg.message_id, text='Введите уникальное название дома (без пробелов):\n'
-                                                                                     'Допустимые символы: А-Я, а-я, A-Z, a-z, 0-9, _, -',reply_markup=kbd.back_markup())
+                                                                                     'Допустимые символы: А-Я, а-я, A-Z, a-z, 0-9, _, -', reply_markup=kbd.back_markup())
     await AddHouse.name.set()
 
 
@@ -25,7 +25,7 @@ async def input_name(msg: Message, state: FSMContext):
     ans = re.findall('^[А-Яа-яA-Za-z0-9_-]{3,50}$', msg.text)
     if not ans:
         await bot.send_message(chat_id=msg.chat.id,
-                                    text='Неверный формат', reply_markup=kbd.back_markup())
+                               text='Неверный формат', reply_markup=kbd.back_markup())
         return ''
     await state.update_data(name=msg.text)
     await bot.send_message(msg.chat.id, text='Выберите профессию:', reply_markup=kbd.give_role())
@@ -48,20 +48,21 @@ async def input_admin(cq: CallbackQuery, state: FSMContext):
         await bot.edit_message_text(chat_id=msg.chat.id, message_id=msg.message_id,
                                     text=f'Название дома: {name_house}\nПрофессия работника: {role}\n\n\n'
                                     'Введите все пункты проверок для работника, без пробелов, через запятую\n'
-                                        'Допустимые символы: А-Я, а-я, A-Z, a-z, 0-9, _, -', reply_markup=kbd.back_markup())
+                                    'Допустимые символы: А-Я, а-я, A-Z, a-z, 0-9, _, -', reply_markup=kbd.back_markup())
         await AddHouse.next()
 
 
 @dp.message_handler(state=AddHouse.args_list)
 async def input_args(msg: Message, state: FSMContext):
-    ans = re.findall('^([А-Яа-яA-Za-z0-9_-]{3,50}\,){0,500}([А-Яа-яA-Za-z0-9_-]{1,50})$', msg.text)
+    ans = re.findall(
+        '^([А-Яа-яA-Za-z0-9_-]{3,50}\,){0,500}([А-Яа-яA-Za-z0-9_-]{1,50})$', msg.text)
     if not ans:
         await bot.send_message(chat_id=msg.chat.id,
-                                    text='Неверный формат', reply_markup=kbd.back_markup())
+                               text='Неверный формат', reply_markup=kbd.back_markup())
         return ''
     else:
         args_list = msg.text.split(',')
-        await state.update_data(args_list = args_list)
+        await state.update_data(args_list=args_list)
         data = await state.get_data()
         _str = f"Подверди конфигурацию:\n\nНазвание дома: {data['name']}\nПрофессия работника:{data['role']}\n\nПроверки:\n"
         for num, check in enumerate(args_list):
@@ -78,11 +79,11 @@ async def approve(cq: CallbackQuery, state: FSMContext):
         data = await state.get_data()
         await state.finish()
         full_name_house = f'{data["name"]}_{data["role"]}'
-        await http.create_new_table(name_table=full_name_house, args_list= data['args_list'])
+        await http.create_new_table(name_table=full_name_house, args_list=data['args_list'])
         await bot.edit_message_text(chat_id=msg.chat.id, message_id=msg.message_id,
-                                        text= 'Дом был успешно добавлен.', reply_markup=kbd.back_markup())
+                                    text='Дом был успешно добавлен.', reply_markup=kbd.back_markup())
     else:
         await AddHouse.args_list.set()
         await bot.edit_message_text(chat_id=msg.chat.id, message_id=msg.message_id,
                                     text='Введите все пункты проверок для работника, без пробелов, через запятую\n'
-                                        'Допустимые символы: А-Я, а-я, A-Z, a-z, 0-9, _, -', reply_markup=kbd.back_markup())
+                                    'Допустимые символы: А-Я, а-я, A-Z, a-z, 0-9, _, -', reply_markup=kbd.back_markup())

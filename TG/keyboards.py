@@ -8,23 +8,31 @@ from .houses_and_roles import houses as hs, roles as rl
 class Keyboards_User:
     houses = hs
     roles = rl
+    tasks:list
     def __init__(self):
         self.btn_back_to_menu = InlineKeyboardButton(
             text='↩️Вернуться в меню',
             callback_data='back_to_menu'
         )
 
-    def main_menu(self,user:UserInfo):
+    def main_menu(self, user: UserInfo):
         markup = InlineKeyboardMarkup(row_width=3)
         for role in self.roles:
-                if getattr(user, role):
-                    role_user = role
+            if getattr(user, role):
+                role_user = role
         for house in self.houses:
             if role_user in house:
                 name_house = house.replace(f'_{role_user}', '')
                 markup.insert(InlineKeyboardButton(text=name_house,
-                                                     callback_data=f'select_house_{house}'))
+                                                   callback_data=f'select_house_{house}'))
         return markup
+    
+
+    def tasks_kbd(self,current_report:list):
+        markup = InlineKeyboardMarkup()
+        ln = len(self.tasks)
+
+
 
 class Keyboards_admin():
     users: list[UserInfo]
@@ -59,7 +67,8 @@ class Keyboards_admin():
         # markup.add(add_user, add_admin, remove_admin,
         #            add_permission, delete_permission)
         markup.add(add_user, add_permission)
-        markup.row(InlineKeyboardButton('Добавить новый дом', callback_data='add_new_house'))
+        markup.row(InlineKeyboardButton(
+            'Добавить новый дом', callback_data='add_new_house'))
         return markup
 
     def give_admin(self) -> InlineKeyboardMarkup:
@@ -148,11 +157,13 @@ class Keyboards_admin():
             text='❌Удалить пользователя', callback_data='delete_user'))
         markup.row(self.btn_back_to_menu)
         return markup
-    
+
     def approve_house(self, ):
         markup = InlineKeyboardMarkup(row_width=2)
-        markup.insert(InlineKeyboardButton(text='✅Подтвердить', callback_data='add_house_approve'))
-        markup.insert(InlineKeyboardButton(text='🛠Изменить пункты проверок', callback_data='add_house_replace'))
+        markup.insert(InlineKeyboardButton(
+            text='✅Подтвердить', callback_data='add_house_approve'))
+        markup.insert(InlineKeyboardButton(
+            text='🛠Изменить пункты проверок', callback_data='add_house_replace'))
 
         markup.row(self.btn_back_to_menu)
         return markup
