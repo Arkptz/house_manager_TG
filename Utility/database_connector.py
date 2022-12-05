@@ -114,7 +114,7 @@ class DbHouse:
                 ans.append('')
                 _str += "'',"
             _str = _str[:-1]
-            _str+= ')'
+            _str += ')'
             self.cursor.execute(_str)
             self.db.commit()
         ans_dict = {}

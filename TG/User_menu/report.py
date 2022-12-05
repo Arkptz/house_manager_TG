@@ -13,7 +13,7 @@ import re
 kbd = Keyboards_User()
 
 
-async def send_report(user_id, house, edit=True, msg:Message=None):
+async def send_report(user_id, house, edit=True, msg: Message = None):
     txt = 'Отчёт:\n'
     cur_report = await http.get_report_with_current_date(user_id, house)
     for task in cur_report.keys():
@@ -25,6 +25,7 @@ async def send_report(user_id, house, edit=True, msg:Message=None):
     else:
         await bot.send_message(chat_id=user_id, text=txt, reply_markup=kbd.tasks_kbd(cur_report))
     await Report.tasks.set()
+
 
 @dp.callback_query_handler(Text(startswith='select_house_'))
 async def add_report(cq: CallbackQuery):
@@ -50,7 +51,7 @@ async def add_comment_(cq: CallbackQuery, state: FSMContext):
     msg = cq.message
     user_id = msg.chat.id
     await state.update_data(task=task)
-    await bot.edit_message_text(chat_id= user_id, message_id=msg.message_id, text=f'Введи новый комментарий, для пункта "{task}":')
+    await bot.edit_message_text(chat_id=user_id, message_id=msg.message_id, text=f'Введи новый комментарий, для пункта "{task}":')
     await Report.comment.set()
 
 
@@ -59,7 +60,7 @@ async def comment_input(msg: Message, state: FSMContext):
     data = await state.get_data()
     task = data['task']
     user_id = msg.chat.id
-    await http.update_report(user_id, kbd.name_table, tasks={task:msg.text})
+    await http.update_report(user_id, kbd.name_table, tasks={task: msg.text})
     await send_report(user_id, kbd.name_table, edit=False)
 
 

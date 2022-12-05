@@ -8,8 +8,9 @@ from .houses_and_roles import houses as hs, roles as rl
 class Keyboards_User:
     houses = hs
     roles = rl
-    tasks:list
-    name_table:str
+    tasks: list
+    name_table: str
+
     def __init__(self):
         self.btn_back_to_menu = InlineKeyboardButton(
             text='↩️Вернуться в меню',
@@ -27,25 +28,30 @@ class Keyboards_User:
                 markup.insert(InlineKeyboardButton(text=name_house,
                                                    callback_data=f'select_house_{house}'))
         return markup
-    
 
-    def tasks_kbd(self,current_report:dict[str, str], page=0):
+    def tasks_kbd(self, current_report: dict[str, str], page=0):
         markup = InlineKeyboardMarkup(row_width=3)
-        start = page *ctfop
+        start = page * ctfop
         select_tasks = self.tasks[start:start+ctfop]
         for task in select_tasks:
             lst_buttons = []
             task_res = current_report[task]
             if task_res != '':
-                lst_buttons.append(InlineKeyboardButton(text=f'✅{task}', callback_data='////'))
+                lst_buttons.append(InlineKeyboardButton(
+                    text=f'✅{task}', callback_data='////'))
                 if task_res == 'None':
-                    lst_buttons.append(InlineKeyboardButton(text='📝(Доб. комм.)', callback_data=f'add_comment_{task}'))
+                    lst_buttons.append(InlineKeyboardButton(
+                        text='📝(Доб. комм.)', callback_data=f'add_comment_{task}'))
                 else:
-                    lst_buttons.append(InlineKeyboardButton(text='📝(Изм. комм.)', callback_data=f'add_comment_{task}'))
+                    lst_buttons.append(InlineKeyboardButton(
+                        text='📝(Изм. комм.)', callback_data=f'add_comment_{task}'))
             else:
-                lst_buttons.append(InlineKeyboardButton(text=task, callback_data='////'))
-                lst_buttons.append(InlineKeyboardButton(text='✅(Всё гуд)', callback_data=f'approve_task_{task}'))
-                lst_buttons.append(InlineKeyboardButton(text='📝(Доб. комм.)', callback_data=f'add_comment_{task}'))
+                lst_buttons.append(InlineKeyboardButton(
+                    text=task, callback_data='////'))
+                lst_buttons.append(InlineKeyboardButton(
+                    text='✅(Всё гуд)', callback_data=f'approve_task_{task}'))
+                lst_buttons.append(InlineKeyboardButton(
+                    text='📝(Доб. комм.)', callback_data=f'add_comment_{task}'))
             markup.row(*lst_buttons)
         markup.row(InlineKeyboardButton(
             text='------------------------------------------', callback_data='.....'))

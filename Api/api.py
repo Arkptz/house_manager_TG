@@ -44,7 +44,7 @@ class AddTranslate(BaseModel):
 
 
 class GetReport(BaseModel):
-    user_id:int
+    user_id: int
     name_table: str
 
 
@@ -128,6 +128,7 @@ async def get_name_tables():
 async def create_new_table(item: NewTable):
     return await bug_catcher(db_house.create_new_table(name_table=item.name_table, args_list=item.args_list),
                              'create_new_table', data_required=False)
+
 
 @app.get('/get_report_with_current_date/')
 async def get_report_with_current_date(item: GetReport):
