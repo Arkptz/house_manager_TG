@@ -8,7 +8,7 @@ import config as cfg
 from aiogram.types import Message
 from aiogram.dispatcher import FSMContext
 from aiogram.types import Message, CallbackQuery
-from .states import AdminAddAdmin, AdminAddUser, AdminDeleteAdmin, AdminRemotePermission, AddHouse
+from .states import AdminAddAdmin, AdminAddUser, AdminDeleteAdmin, AdminRemotePermission, AddHouse, Report
 kbd_a = Keyboards_admin()
 kbd = Keyboards_User()
 
@@ -60,7 +60,8 @@ async def start(msg: Message):
                                   AdminRemotePermission.user,
                                   AddHouse.name,
                                   AddHouse.role,
-                                  AddHouse.args_list, AddHouse.approve])
+                                  AddHouse.args_list, AddHouse.approve,
+                                  Report.tasks])
 async def back_to_menu(cq: CallbackQuery, state: FSMContext):
     msg = cq.message
     user_id = msg.chat.id

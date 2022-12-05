@@ -64,7 +64,7 @@ class Http:
         ans = await self.req('create_new_table/', data={'name_table': name_table, 'args_list': args_list}, method='POST')
 
 
-    async def get_report_with_current_date(self,  user_id:int, name_table:str) -> Union[list[str], bool]:
+    async def get_report_with_current_date(self,  user_id:int, name_table:str) -> Union[dict[str, str], bool]:
         ans = await self.req('get_report_with_current_date/', data={'user_id': user_id, 'name_table': name_table})
         return ans
     
@@ -72,6 +72,10 @@ class Http:
     async def get_name_cols_for_table(self, name_table:str) -> list[str]:
         ans = await self.req('get_name_cols_for_table/', data={'name_table': name_table})
         return ans
+
+    async def update_report(self, user_id: int, name_table: str, tasks: dict) -> None:
+        ans = await self.req('update_report/', data={'user_id': user_id, 'name_table': name_table, 'tasks':tasks}, method='POST')
+
 
 
 http = Http()

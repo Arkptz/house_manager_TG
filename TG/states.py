@@ -33,6 +33,7 @@ class AddHouse(StatesGroup):
     args_list = State()
     approve = State()
 
+
 class Report(StatesGroup):
-    house = State()
     tasks = State()
+    comment = State()

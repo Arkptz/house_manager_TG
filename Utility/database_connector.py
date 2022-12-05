@@ -99,23 +99,51 @@ class DbHouse:
         _str += ')'
         self.cursor.execute(_str)
         self.db.commit()
-    
-    async def get_report_with_current_date(self, user_id:int, name_table:str) -> Union[list[str], bool]:
-        date = datetime.now().date()
-        ans = self.cursor.execute(f'SELECT * FROM {name_table} WHERE id={user_id} AND WHERE date={date}').fetchone()
-        if ans:
-            return list(ans)[2:]
-        else:
-            return False
 
-    async def get_name_cols_for_table(self, name_table:str) -> list[str]:
-        cols = self.cursor.execute(f'''PRAGMA table_info({name_table}) ''').fetchall()
+    async def get_report_with_current_date(self, user_id: int, name_table: str) -> Union[dict[str, str], bool]:
+        date = datetime.now().date()
+        ans = self.cursor.execute(
+            f'SELECT * FROM {name_table} WHERE id={user_id} AND date={date}').fetchone()
+        cols = await self.get_name_cols_for_table(name_table)
+        if ans:
+            ans = list(ans)[2:]
+        else:
+            ans = []
+            _str = f'INSERT INTO {name_table} VALUES({date}, {user_id},'
+            for i in cols:
+                ans.append('')
+                _str += "'',"
+            _str = _str[:-1]
+            _str+= ')'
+            self.cursor.execute(_str)
+            self.db.commit()
+        ans_dict = {}
+        for i in range(len(cols)):
+            ans_dict[cols[i]] = ans[i]
+        return ans_dict
+
+    async def get_name_cols_for_table(self, name_table: str) -> list[str]:
+        cols = self.cursor.execute(
+            f'''PRAGMA table_info({name_table}) ''').fetchall()
         cols_res = []
         for i in cols:
             col_name = i[1]
             if not col_name in ['date', 'id']:
                 cols_res.append(col_name)
         return cols_res
+
+    async def update_report(self, user_id: int, name_table: str, tasks: dict) -> None:
+        date = datetime.now().date()
+        ans = self.cursor.execute(
+            f'SELECT * FROM {name_table} WHERE id={user_id} AND date={date}').fetchone()
+        _str = f'UPDATE {name_table} SET'
+        for key in tasks.keys():
+            _str += f" {key}='{tasks[key]}',"
+        _str = _str[:-1]
+        _str += f" WHERE id = {user_id} AND date={date}"
+        self.cursor.execute(_str)
+        self.db.commit()
+
 
 class FullBd:
 

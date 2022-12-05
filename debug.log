@@ -424,3 +424,591 @@ TypeError: object list can't be used in 'await' expression
 05.12.2022 15:03:11:311|INFO|TG.handlers on_startup line:20|send main menu
 05.12.2022 15:04:15:415|INFO|TG.handlers on_startup line:20|send main menu
 05.12.2022 15:06:12:612|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 15:46:56:4656|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 15:47:33:4733|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 15:47:36:4736|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(f'SELECT * FROM {name_table} WHERE id={user_id} AND WHERE date={date}').fetchone()
+sqlite3.OperationalError: near "WHERE": syntax error
+
+05.12.2022 15:47:36:4736|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(f'SELECT * FROM {name_table} WHERE id={user_id} AND WHERE date={date}').fetchone()
+sqlite3.OperationalError: near "WHERE": syntax error
+
+05.12.2022 15:47:36:4736|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(f'SELECT * FROM {name_table} WHERE id={user_id} AND WHERE date={date}').fetchone()
+sqlite3.OperationalError: near "WHERE": syntax error
+
+05.12.2022 15:47:36:4736|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(f'SELECT * FROM {name_table} WHERE id={user_id} AND WHERE date={date}').fetchone()
+sqlite3.OperationalError: near "WHERE": syntax error
+
+05.12.2022 15:47:36:4736|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(f'SELECT * FROM {name_table} WHERE id={user_id} AND WHERE date={date}').fetchone()
+sqlite3.OperationalError: near "WHERE": syntax error
+
+05.12.2022 15:48:34:4834|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 15:49:02:492|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 15:49:05:495|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(f'SELECT * FROM {name_table} WHERE id={user_id} AND WHERE date={date}').fetchone()
+sqlite3.OperationalError: near "WHERE": syntax error
+
+05.12.2022 15:49:05:495|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(f'SELECT * FROM {name_table} WHERE id={user_id} AND WHERE date={date}').fetchone()
+sqlite3.OperationalError: near "WHERE": syntax error
+
+05.12.2022 15:49:05:495|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(f'SELECT * FROM {name_table} WHERE id={user_id} AND WHERE date={date}').fetchone()
+sqlite3.OperationalError: near "WHERE": syntax error
+
+05.12.2022 15:49:05:495|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(f'SELECT * FROM {name_table} WHERE id={user_id} AND WHERE date={date}').fetchone()
+sqlite3.OperationalError: near "WHERE": syntax error
+
+05.12.2022 15:49:05:495|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(f'SELECT * FROM {name_table} WHERE id={user_id} AND WHERE date={date}').fetchone()
+sqlite3.OperationalError: near "WHERE": syntax error
+
+05.12.2022 15:49:08:498|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(f'SELECT * FROM {name_table} WHERE id={user_id} AND WHERE date={date}').fetchone()
+sqlite3.OperationalError: near "WHERE": syntax error
+
+05.12.2022 15:49:08:498|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(f'SELECT * FROM {name_table} WHERE id={user_id} AND WHERE date={date}').fetchone()
+sqlite3.OperationalError: near "WHERE": syntax error
+
+05.12.2022 15:49:08:498|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(f'SELECT * FROM {name_table} WHERE id={user_id} AND WHERE date={date}').fetchone()
+sqlite3.OperationalError: near "WHERE": syntax error
+
+05.12.2022 15:49:08:498|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(f'SELECT * FROM {name_table} WHERE id={user_id} AND WHERE date={date}').fetchone()
+sqlite3.OperationalError: near "WHERE": syntax error
+
+05.12.2022 15:49:08:498|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(f'SELECT * FROM {name_table} WHERE id={user_id} AND WHERE date={date}').fetchone()
+sqlite3.OperationalError: near "WHERE": syntax error
+
+05.12.2022 16:13:56:1356|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:14:01:141|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(
+sqlite3.OperationalError: no such column: id
+
+05.12.2022 16:14:01:141|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(
+sqlite3.OperationalError: no such column: id
+
+05.12.2022 16:14:01:141|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(
+sqlite3.OperationalError: no such column: id
+
+05.12.2022 16:14:01:141|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(
+sqlite3.OperationalError: no such column: id
+
+05.12.2022 16:14:01:141|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(
+sqlite3.OperationalError: no such column: id
+
+05.12.2022 16:14:03:143|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(
+sqlite3.OperationalError: no such column: id
+
+05.12.2022 16:14:03:143|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(
+sqlite3.OperationalError: no such column: id
+
+05.12.2022 16:14:03:143|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(
+sqlite3.OperationalError: no such column: id
+
+05.12.2022 16:14:03:143|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(
+sqlite3.OperationalError: no such column: id
+
+05.12.2022 16:14:03:143|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(
+sqlite3.OperationalError: no such column: id
+
+05.12.2022 16:14:07:147|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 118, in get_report_with_current_date
+    self.cursor.execute(_str)
+sqlite3.OperationalError: table Основной_дом_it has 6 columns but 4 values were supplied
+
+05.12.2022 16:14:07:147|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 118, in get_report_with_current_date
+    self.cursor.execute(_str)
+sqlite3.OperationalError: table Основной_дом_it has 6 columns but 4 values were supplied
+
+05.12.2022 16:14:07:147|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 118, in get_report_with_current_date
+    self.cursor.execute(_str)
+sqlite3.OperationalError: table Основной_дом_it has 6 columns but 4 values were supplied
+
+05.12.2022 16:14:07:147|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 118, in get_report_with_current_date
+    self.cursor.execute(_str)
+sqlite3.OperationalError: table Основной_дом_it has 6 columns but 4 values were supplied
+
+05.12.2022 16:14:07:147|DEBUG|Api.api bug_catcher line:68|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 56, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 118, in get_report_with_current_date
+    self.cursor.execute(_str)
+sqlite3.OperationalError: table Основной_дом_it has 6 columns but 4 values were supplied
+
+05.12.2022 16:19:48:1948|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:19:53:1953|DEBUG|Api.api bug_catcher line:75|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 118, in get_report_with_current_date
+    self.cursor.execute(_str)
+sqlite3.OperationalError: table Основной_дом_it has 6 columns but 4 values were supplied
+
+05.12.2022 16:19:53:1953|DEBUG|Api.api bug_catcher line:75|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 118, in get_report_with_current_date
+    self.cursor.execute(_str)
+sqlite3.OperationalError: table Основной_дом_it has 6 columns but 4 values were supplied
+
+05.12.2022 16:19:53:1953|DEBUG|Api.api bug_catcher line:75|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 118, in get_report_with_current_date
+    self.cursor.execute(_str)
+sqlite3.OperationalError: table Основной_дом_it has 6 columns but 4 values were supplied
+
+05.12.2022 16:19:53:1953|DEBUG|Api.api bug_catcher line:75|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 118, in get_report_with_current_date
+    self.cursor.execute(_str)
+sqlite3.OperationalError: table Основной_дом_it has 6 columns but 4 values were supplied
+
+05.12.2022 16:19:53:1953|DEBUG|Api.api bug_catcher line:75|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 118, in get_report_with_current_date
+    self.cursor.execute(_str)
+sqlite3.OperationalError: table Основной_дом_it has 6 columns but 4 values were supplied
+
+05.12.2022 16:19:54:1954|DEBUG|Api.api bug_catcher line:75|Ошибка /update_report/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 144, in update_report
+    self.cursor.execute(_str)
+sqlite3.OperationalError: no such column: None
+
+05.12.2022 16:19:54:1954|DEBUG|Api.api bug_catcher line:75|Ошибка /update_report/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 144, in update_report
+    self.cursor.execute(_str)
+sqlite3.OperationalError: no such column: None
+
+05.12.2022 16:19:54:1954|DEBUG|Api.api bug_catcher line:75|Ошибка /update_report/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 144, in update_report
+    self.cursor.execute(_str)
+sqlite3.OperationalError: no such column: None
+
+05.12.2022 16:19:54:1954|DEBUG|Api.api bug_catcher line:75|Ошибка /update_report/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 144, in update_report
+    self.cursor.execute(_str)
+sqlite3.OperationalError: no such column: None
+
+05.12.2022 16:19:54:1954|DEBUG|Api.api bug_catcher line:75|Ошибка /update_report/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 144, in update_report
+    self.cursor.execute(_str)
+sqlite3.OperationalError: no such column: None
+
+05.12.2022 16:20:58:2058|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:21:01:211|DEBUG|Api.api bug_catcher line:75|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 118, in get_report_with_current_date
+    self.cursor.execute(_str)
+sqlite3.OperationalError: table Основной_дом_it has 6 columns but 4 values were supplied
+
+05.12.2022 16:21:01:211|DEBUG|Api.api bug_catcher line:75|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 118, in get_report_with_current_date
+    self.cursor.execute(_str)
+sqlite3.OperationalError: table Основной_дом_it has 6 columns but 4 values were supplied
+
+05.12.2022 16:21:01:211|DEBUG|Api.api bug_catcher line:75|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 118, in get_report_with_current_date
+    self.cursor.execute(_str)
+sqlite3.OperationalError: table Основной_дом_it has 6 columns but 4 values were supplied
+
+05.12.2022 16:21:01:211|DEBUG|Api.api bug_catcher line:75|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 118, in get_report_with_current_date
+    self.cursor.execute(_str)
+sqlite3.OperationalError: table Основной_дом_it has 6 columns but 4 values were supplied
+
+05.12.2022 16:21:01:211|DEBUG|Api.api bug_catcher line:75|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 118, in get_report_with_current_date
+    self.cursor.execute(_str)
+sqlite3.OperationalError: table Основной_дом_it has 6 columns but 4 values were supplied
+
+05.12.2022 16:21:45:2145|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:21:50:2150|DEBUG|Api.api bug_catcher line:75|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 121, in get_report_with_current_date
+    for i in len(cols):
+TypeError: 'int' object is not iterable
+
+05.12.2022 16:21:50:2150|DEBUG|Api.api bug_catcher line:75|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 121, in get_report_with_current_date
+    for i in len(cols):
+TypeError: 'int' object is not iterable
+
+05.12.2022 16:21:50:2150|DEBUG|Api.api bug_catcher line:75|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 121, in get_report_with_current_date
+    for i in len(cols):
+TypeError: 'int' object is not iterable
+
+05.12.2022 16:21:50:2150|DEBUG|Api.api bug_catcher line:75|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 121, in get_report_with_current_date
+    for i in len(cols):
+TypeError: 'int' object is not iterable
+
+05.12.2022 16:21:50:2150|DEBUG|Api.api bug_catcher line:75|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 121, in get_report_with_current_date
+    for i in len(cols):
+TypeError: 'int' object is not iterable
+
+05.12.2022 16:22:57:2257|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:23:22:2322|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:24:29:2429|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:24:45:2445|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:25:12:2512|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:25:16:2516|DEBUG|Api.api bug_catcher line:75|Ошибка /update_report/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 144, in update_report
+    self.cursor.execute(_str)
+sqlite3.OperationalError: no such column: None
+
+05.12.2022 16:25:16:2516|DEBUG|Api.api bug_catcher line:75|Ошибка /update_report/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 144, in update_report
+    self.cursor.execute(_str)
+sqlite3.OperationalError: no such column: None
+
+05.12.2022 16:25:16:2516|DEBUG|Api.api bug_catcher line:75|Ошибка /update_report/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 144, in update_report
+    self.cursor.execute(_str)
+sqlite3.OperationalError: no such column: None
+
+05.12.2022 16:25:16:2516|DEBUG|Api.api bug_catcher line:75|Ошибка /update_report/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 144, in update_report
+    self.cursor.execute(_str)
+sqlite3.OperationalError: no such column: None
+
+05.12.2022 16:25:16:2516|DEBUG|Api.api bug_catcher line:75|Ошибка /update_report/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 144, in update_report
+    self.cursor.execute(_str)
+sqlite3.OperationalError: no such column: None
+
+05.12.2022 16:26:11:2611|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:26:18:2618|DEBUG|Api.api bug_catcher line:75|Ошибка /update_report/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 144, in update_report
+    self.cursor.execute(_str)
+sqlite3.OperationalError: no such column: None
+
+05.12.2022 16:26:18:2618|DEBUG|Api.api bug_catcher line:75|Ошибка /update_report/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 144, in update_report
+    self.cursor.execute(_str)
+sqlite3.OperationalError: no such column: None
+
+05.12.2022 16:26:18:2618|DEBUG|Api.api bug_catcher line:75|Ошибка /update_report/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 144, in update_report
+    self.cursor.execute(_str)
+sqlite3.OperationalError: no such column: None
+
+05.12.2022 16:26:18:2618|DEBUG|Api.api bug_catcher line:75|Ошибка /update_report/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 144, in update_report
+    self.cursor.execute(_str)
+sqlite3.OperationalError: no such column: None
+
+05.12.2022 16:26:18:2618|DEBUG|Api.api bug_catcher line:75|Ошибка /update_report/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 144, in update_report
+    self.cursor.execute(_str)
+sqlite3.OperationalError: no such column: None
+
+05.12.2022 16:27:40:2740|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:27:43:2743|DEBUG|Api.api bug_catcher line:75|Ошибка /update_report/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 146, in update_report
+    self.cursor.execute(_str)
+sqlite3.OperationalError: no such column: None
+
+05.12.2022 16:27:43:2743|DEBUG|Api.api bug_catcher line:75|Ошибка /update_report/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 146, in update_report
+    self.cursor.execute(_str)
+sqlite3.OperationalError: no such column: None
+
+05.12.2022 16:27:43:2743|DEBUG|Api.api bug_catcher line:75|Ошибка /update_report/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 146, in update_report
+    self.cursor.execute(_str)
+sqlite3.OperationalError: no such column: None
+
+05.12.2022 16:27:43:2743|DEBUG|Api.api bug_catcher line:75|Ошибка /update_report/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 146, in update_report
+    self.cursor.execute(_str)
+sqlite3.OperationalError: no such column: None
+
+05.12.2022 16:27:43:2743|DEBUG|Api.api bug_catcher line:75|Ошибка /update_report/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 146, in update_report
+    self.cursor.execute(_str)
+sqlite3.OperationalError: no such column: None
+
+05.12.2022 16:28:23:2823|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:34:11:3411|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:36:02:362|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:38:31:3831|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:39:02:392|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:50:56:5056|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:51:17:5117|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:53:54:5354|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:54:22:5422|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:55:05:555|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:56:30:5630|DEBUG|Api.api bug_catcher line:75|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(
+sqlite3.OperationalError: no such column: id
+
+05.12.2022 16:56:30:5630|DEBUG|Api.api bug_catcher line:75|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(
+sqlite3.OperationalError: no such column: id
+
+05.12.2022 16:56:30:5630|DEBUG|Api.api bug_catcher line:75|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(
+sqlite3.OperationalError: no such column: id
+
+05.12.2022 16:56:30:5630|DEBUG|Api.api bug_catcher line:75|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(
+sqlite3.OperationalError: no such column: id
+
+05.12.2022 16:56:30:5630|DEBUG|Api.api bug_catcher line:75|Ошибка /get_report_with_current_date/
+Traceback (most recent call last):
+  File "e:\Рабочий стол\house_manager_TG\Api\api.py", line 63, in bug_catcher
+    data = await coro
+  File "e:\Рабочий стол\house_manager_TG\Utility\database_connector.py", line 105, in get_report_with_current_date
+    ans = self.cursor.execute(
+sqlite3.OperationalError: no such column: id
+
+05.12.2022 16:57:21:5721|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 16:59:17:5917|INFO|TG.handlers on_startup line:20|send main menu
+05.12.2022 17:00:39:039|INFO|TG.handlers on_startup line:20|send main menu

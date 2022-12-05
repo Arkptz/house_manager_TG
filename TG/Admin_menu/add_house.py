@@ -77,7 +77,6 @@ async def approve(cq: CallbackQuery, state: FSMContext):
     doing = cq.data.split('add_house_')[1]
     if doing == 'approve':
         data = await state.get_data()
-        await state.finish()
         full_name_house = f'{data["name"]}_{data["role"]}'
         await http.create_new_table(name_table=full_name_house, args_list=data['args_list'])
         await bot.edit_message_text(chat_id=msg.chat.id, message_id=msg.message_id,

@@ -51,6 +51,13 @@ class GetReport(BaseModel):
 class GetCols(BaseModel):
     name_table: str
 
+
+class UpdateReport(BaseModel):
+    user_id: int
+    name_table: str
+    tasks: dict
+
+
 async def bug_catcher(coro, name_debug, dict_required=False, data_required=True,):
     try:
         data = await coro
@@ -132,3 +139,9 @@ async def get_report_with_current_date(item: GetReport):
 async def get_name_cols_for_table(item: GetCols):
     return await bug_catcher(db_house.get_name_cols_for_table(item.name_table),
                              'get_name_cols_for_table')
+
+
+@app.post('/update_report/')
+async def update_report(item: UpdateReport):
+    return await bug_catcher(db_house.update_report(item.user_id, item.name_table, item.tasks),
+                             'update_report', data_required=False)

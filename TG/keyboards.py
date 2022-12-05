@@ -1,7 +1,7 @@
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from Utility.classes import UserInfo
 from Api.http_api import http
-from config import count_buttons_for_one_page as cbfop
+from config import count_buttons_for_one_page as cbfop, count_tasks_for_one_page as ctfop
 from .houses_and_roles import houses as hs, roles as rl
 
 
@@ -9,6 +9,7 @@ class Keyboards_User:
     houses = hs
     roles = rl
     tasks:list
+    name_table:str
     def __init__(self):
         self.btn_back_to_menu = InlineKeyboardButton(
             text='↩️Вернуться в меню',
@@ -28,10 +29,37 @@ class Keyboards_User:
         return markup
     
 
-    def tasks_kbd(self,current_report:list):
-        markup = InlineKeyboardMarkup()
-        ln = len(self.tasks)
-
+    def tasks_kbd(self,current_report:dict[str, str], page=0):
+        markup = InlineKeyboardMarkup(row_width=3)
+        start = page *ctfop
+        select_tasks = self.tasks[start:start+ctfop]
+        for task in select_tasks:
+            lst_buttons = []
+            task_res = current_report[task]
+            if task_res != '':
+                lst_buttons.append(InlineKeyboardButton(text=f'✅{task}', callback_data='////'))
+                if task_res == 'None':
+                    lst_buttons.append(InlineKeyboardButton(text='📝(Доб. комм.)', callback_data=f'add_comment_{task}'))
+                else:
+                    lst_buttons.append(InlineKeyboardButton(text='📝(Изм. комм.)', callback_data=f'add_comment_{task}'))
+            else:
+                lst_buttons.append(InlineKeyboardButton(text=task, callback_data='////'))
+                lst_buttons.append(InlineKeyboardButton(text='✅(Всё гуд)', callback_data=f'approve_task_{task}'))
+                lst_buttons.append(InlineKeyboardButton(text='📝(Доб. комм.)', callback_data=f'add_comment_{task}'))
+            markup.row(*lst_buttons)
+        markup.row(InlineKeyboardButton(
+            text='------------------------------------------', callback_data='.....'))
+        footer = []
+        if page != 0:
+            footer.append(InlineKeyboardButton(
+                text='⬅️Предыдущая страница', callback_data=f'replace_page_{page-1}'))
+        footer.append(InlineKeyboardButton(
+            text=f'Стр. №{page+1}', callback_data=f'{page}'))
+        footer.append(InlineKeyboardButton(
+            text='➡️Следующая страница', callback_data=f'replace_page_{page+1}'))
+        markup.row(*footer)
+        markup.row(self.btn_back_to_menu)
+        return markup
 
 
 class Keyboards_admin():
