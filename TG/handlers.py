@@ -86,6 +86,8 @@ async def back_to_menu(cq: CallbackQuery, state: FSMContext):
         await bot.edit_message_text(
             chat_id=msg.chat.id, message_id=msg.message_id,
             text='<b>Выбери здание:</b>',
-            reply_markup=menu_markup
+            reply_markup=menu_markup[0]
         )
     await state.finish()
+
+dp.register_callback_query_handler(back_to_menu, text='back_to_menu',)

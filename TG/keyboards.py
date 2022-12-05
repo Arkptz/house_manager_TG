@@ -29,10 +29,12 @@ class Keyboards_User:
                     name_house = house.replace(f'_{role_user}', '')
                     markup.insert(InlineKeyboardButton(text=name_house,
                                                        callback_data=f'select_house_{house}'))
+            markup.row(self.btn_back_to_menu)
             return [markup, 'houses']
         else:
             for role in roles_user:
-                markup.insert(InlineKeyboardButton(text=role,
+                if role != 'admin':
+                    markup.insert(InlineKeyboardButton(text=role,
                                                    callback_data=f'select_role_{role}'))
             return [markup, role_user]
 

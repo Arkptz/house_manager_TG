@@ -1182,3 +1182,9 @@ sqlite3.OperationalError: no such column: None
 05.12.2022 21:08:21:821|INFO|TG.handlers on_startup line:22|send main menu
 05.12.2022 21:10:32:1032|INFO|TG.handlers on_startup line:22|send main menu
 05.12.2022 21:11:45:1145|INFO|TG.handlers on_startup line:22|send main menu
+05.12.2022 21:14:44:1444|INFO|TG.handlers on_startup line:22|send main menu
+05.12.2022 21:15:24:1524|INFO|TG.handlers on_startup line:22|send main menu
+05.12.2022 21:16:18:1618|INFO|TG.handlers on_startup line:22|send main menu
+05.12.2022 21:17:05:175|INFO|TG.handlers on_startup line:22|send main menu
+05.12.2022 21:17:21:1721|INFO|TG.handlers on_startup line:22|send main menu
+05.12.2022 21:18:13:1813|INFO|TG.handlers on_startup line:22|send main menu
