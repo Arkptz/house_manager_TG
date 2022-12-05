@@ -44,7 +44,7 @@ class UsersDatabaseConnector:
                 'SELECT * FROM User WHERE id=?', [user['id']]).fetchall()
             if len(data) == 0:
                 self.cursor.execute('INSERT INTO User VALUES(?,?,?,?,?,?,?)',
-                            list(user.values()))
+                                    list(user.values()))
             else:
                 self.cursor.execute(
                     f'UPDATE User set admin = {True} WHERE id=?', [user['id']])

@@ -27,7 +27,7 @@ async def select_user(cq: CallbackQuery, state: FSMContext):
     msg = cq.message
     id = int(cq.data.split('select_user_')[1])
     user = await http.get_user(id)
-    await state.update_data(user_id = id)
+    await state.update_data(user_id=id)
     await bot.edit_message_text(chat_id=msg.chat.id, message_id=msg.message_id, text=f'Настройте права пользователя {user.name}:', reply_markup=kbd.roles_user(user))
 
 
@@ -39,7 +39,8 @@ async def replace_page(cq: CallbackQuery, state: FSMContext):
     data = await state.get_data()
     if 'filters' in data:
         filters = data['filters']
-    else: filters=''
+    else:
+        filters = ''
     await bot.edit_message_reply_markup(chat_id=msg.chat.id, message_id=msg.message_id, reply_markup=kbd.generate_page_users_with_filter(page=page, filters=filters))
 
 

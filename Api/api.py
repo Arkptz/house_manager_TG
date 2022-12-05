@@ -85,7 +85,7 @@ async def get_admins():
 
 @app.post('/add_admins/')
 async def add_admins(item: AdminList):
-    return await bug_catcher(db_users.add_admins(list_users =item.list_admins), 'add_admins', data_required=False)
+    return await bug_catcher(db_users.add_admins(list_users=item.list_admins), 'add_admins', data_required=False)
 
 
 @app.post('/add_user/')

@@ -8,6 +8,7 @@ from .houses_and_roles import houses as hs, roles as rl
 class Keyboards_User:
     houses = hs
     roles = rl
+
     def __init__(self):
         self.btn_back_to_menu = InlineKeyboardButton(
             text='↩️Вернуться в меню',
@@ -35,10 +36,10 @@ class Keyboards_User:
             for role in roles_user:
                 if role != 'admin':
                     markup.insert(InlineKeyboardButton(text=role,
-                                                   callback_data=f'select_role_{role}'))
+                                                       callback_data=f'select_role_{role}'))
             return [markup, role_user]
 
-    def tasks_kbd(self, tasks:list, current_report: dict[str, str], page=0):
+    def tasks_kbd(self, tasks: list, current_report: dict[str, str], page=0):
         markup = InlineKeyboardMarkup(row_width=3)
         start = page * ctfop
         select_tasks = tasks[start:start+ctfop]

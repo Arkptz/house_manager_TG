@@ -17,7 +17,7 @@ kbd = Keyboards_User()
 
 async def on_startup(dp):
     """ try to add admins and create table to add MAIN admin from cfg.admin_list"""
-    await http.add_admins(list_admins=[UserInfo(admin=True,*i).__dict__ for i in cfg.admin_list])
+    await http.add_admins(list_admins=[UserInfo(admin=True, *i).__dict__ for i in cfg.admin_list])
     """ notify admins when bot started """
     log.info('send main menu')
 
