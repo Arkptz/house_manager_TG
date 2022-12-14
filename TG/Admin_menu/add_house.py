@@ -60,7 +60,7 @@ async def input_admin(cq: CallbackQuery, state: FSMContext):
 @admin
 async def input_args(msg: Message, state: FSMContext):
     ans = re.findall(
-        '^([А-Яа-яA-Za-z0-9_-]{3,50}\,){0,500}([А-Яа-яA-Za-z0-9_-]{1,50})$', msg.text)
+        '^([А-Яа-яA-Za-z0-9_-]{2,50}\,){0,500}([А-Яа-яA-Za-z0-9_-]{1,50})$', msg.text)
     if not ans:
         await bot.send_message(chat_id=msg.chat.id,
                                text='Неверный формат', reply_markup=kbd.back_markup())
