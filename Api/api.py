@@ -57,7 +57,7 @@ class AddHouse(BaseModel):
     tasks: list
     user_id: str  # {'name': .., 'access': 'admin/it/electrical/fireman/engineer', tasks: ['task1', 'task2']}
 
-class AddUser(BaseModel):
+class AddUserWA(BaseModel):
     name:str
     id:str
     access:str
@@ -166,7 +166,7 @@ async def add_house(item: AddHouse):
     pass
 
 
-@app.post('/add_user/')
-async def add_user(item: AddUser):
+@app.post('/add_userWA/')
+async def add_userWA(item: AddUserWA):
     pass
 
