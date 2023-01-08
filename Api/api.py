@@ -4,6 +4,7 @@ from typing import Union
 import uvicorn
 import traceback
 import asyncio
+from Utility.classes import UserInfo
 from typing import Coroutine
 from loguru import logger as log
 from config import host_url, port
@@ -163,10 +164,15 @@ async def update_report(item: UpdateReport):
 
 @app.post('/add_house/')
 async def add_house(item: AddHouse):
-    pass
+    if item.user_id:
+        return await bug_catcher(db_house.create_new_table(name_table=item.name, args_list=item.tasks),
+                                'create_new_table', data_required=False)
 
 
 @app.post('/add_userWA/')
 async def add_userWA(item: AddUserWA):
-    pass
+    if item.user_id:
+        user_info = UserInfo(item.name, item.id, )
+        setattr(user_info, item.access, True)
+        return await bug_catcher(db_users.add_user(user_info=user_info.__dict__), 'add_user', data_required=False)
 
