@@ -51,6 +51,17 @@ class GetReport(BaseModel):
 class GetCols(BaseModel):
     name_table: str
 
+class AddHouse(BaseModel):
+    name: str
+    access:str
+    tasks: list
+    user_id: str  # {'name': .., 'access': 'admin/it/electrical/fireman/engineer', tasks: ['task1', 'task2']}
+
+class AddUser(BaseModel):
+    name:str
+    id:str
+    access:str
+    user_id:str
 
 class UpdateReport(BaseModel):
     user_id: int
@@ -146,3 +157,16 @@ async def get_name_cols_for_table(item: GetCols):
 async def update_report(item: UpdateReport):
     return await bug_catcher(db_house.update_report(item.user_id, item.name_table, item.tasks),
                              'update_report', data_required=False)
+
+
+#webapps
+
+@app.post('/add_house/')
+async def add_house(item: AddHouse):
+    pass
+
+
+@app.post('/add_user/')
+async def add_user(item: AddUser):
+    pass
+

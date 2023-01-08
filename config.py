@@ -8,6 +8,7 @@ homeDir = (r'\\').join(os.path.abspath(__file__).split('\\')[:-1])
 
 admin_list = [['\_-_/',1021524873],['Ilya Ermi',828458879]] #[name,id]
 BOT_TOKEN = '5849628959:AAHXJAHn63SjKVCVbnNIajGDauoDOFitrQw'
+host_webapps = 'https://prostorstroj.ru'
 db_path = f'{homeDir}\\db.db'
 host_url = '127.0.0.1'
 port = 8000

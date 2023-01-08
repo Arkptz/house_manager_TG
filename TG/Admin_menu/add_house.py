@@ -3,6 +3,8 @@ from ..keyboards import Keyboards_admin
 from ..states import AddHouse
 from ..houses_and_roles import houses, roles
 from ..decors import admin
+from config import host_webapps
+from aiogram.types import WebAppInfo
 from Api.http_api import http
 from Utility.classes import UserInfo, TempData
 from aiogram.types import Message, CallbackQuery
@@ -11,6 +13,11 @@ from aiogram.dispatcher import FSMContext
 import asyncio
 import re
 kbd = Keyboards_admin()
+
+
+@dp.message_handler(content_types=['web_app_data'])
+async def test(*args):
+    print(args)
 
 
 @dp.callback_query_handler(text='add_new_house')

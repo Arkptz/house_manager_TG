@@ -30,7 +30,8 @@ async def on_startup(dp):
                 text='<b>Бот запущен.</b>',
                 reply_markup=menu_markup
             )
-        except:
+        except Exception as e:
+            print(e)
             pass
 
 
