@@ -5,6 +5,8 @@ from config import count_buttons_for_one_page as cbfop, count_tasks_for_one_page
 from .houses_and_roles import get_house_list as hs, roles as rl
 from config import host_webapps
 from aiogram.types import WebAppInfo
+
+
 class Keyboards_User:
     roles = rl
 
@@ -110,7 +112,7 @@ class Keyboards_admin():
         #            add_permission, delete_permission)
         markup.add(add_user, add_permission)
         markup.row(InlineKeyboardButton(
-            'Добавить новый дом', web_app=WebAppInfo(url = host_webapps+'/new-checklist')))
+            'Добавить новый дом', web_app=WebAppInfo(url=host_webapps+'/new-checklist')))
         return markup
 
     def give_admin(self) -> InlineKeyboardMarkup:

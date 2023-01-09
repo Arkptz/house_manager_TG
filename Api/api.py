@@ -102,7 +102,6 @@ async def bug_catcher(coro, name_debug, dict_required=False, data_required=True,
 
 @app.get('/new-checklist', response_class=HTMLResponse)
 async def new_checklist(request: Request):
-    print(request.items())
     return templates.TemplateResponse("new_checklist/index.html", {"request": request})
 
 
