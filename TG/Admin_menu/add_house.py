@@ -1,7 +1,7 @@
 from ..bot import bot, dp
 from ..keyboards import Keyboards_admin
 from ..states import AddHouse
-from ..houses_and_roles import houses, roles
+from ..houses_and_roles import get_house_list, roles
 from ..decors import admin
 from config import host_webapps
 from aiogram.types import WebAppInfo
@@ -51,7 +51,7 @@ async def input_admin(cq: CallbackQuery, state: FSMContext):
     await state.update_data(role=role)
     name_house = data['name']
     full_name_house = name_house + '_' + role
-    if full_name_house in houses:
+    if full_name_house in get_house_list():
         await bot.edit_message_text(chat_id=msg.chat.id, message_id=msg.message_id,
                                     text='Такая конфигурация уже существует. Введите уникальное название дома:', reply_markup=kbd.back_markup())
         await AddHouse.name.set()

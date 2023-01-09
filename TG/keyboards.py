@@ -2,11 +2,10 @@ from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from Utility.classes import UserInfo
 from Api.http_api import http
 from config import count_buttons_for_one_page as cbfop, count_tasks_for_one_page as ctfop
-from .houses_and_roles import houses as hs, roles as rl
+from .houses_and_roles import get_house_list as hs, roles as rl
 from config import host_webapps
 from aiogram.types import WebAppInfo
 class Keyboards_User:
-    houses = hs
     roles = rl
 
     def __init__(self):
@@ -25,7 +24,7 @@ class Keyboards_User:
         if (len(roles_user) == 1) or role_user:
             if not role_user:
                 role_user = roles_user[0]
-            for house in self.houses:
+            for house in hs():
                 if role_user in house:
                     name_house = house.replace(f'_{role_user}', '')
                     markup.insert(InlineKeyboardButton(text=name_house,

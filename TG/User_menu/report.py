@@ -1,8 +1,8 @@
-from ..bot import bot, dp
+from ..user_bot import bot, dp
 from ..keyboards import Keyboards_User
 from ..states import Report
 from ..decors import user
-from ..houses_and_roles import houses, roles
+from ..houses_and_roles import get_house_list, roles
 from Api.http_api import http
 from Utility.classes import UserInfo, TempData
 from aiogram.types import Message, CallbackQuery

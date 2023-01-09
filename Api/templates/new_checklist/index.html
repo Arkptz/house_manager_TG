@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../new_checklist/static/css/site.css">
+    <title>Добавить чек-лист</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="blob" style="top: 0; left: -100px;"></div>
+        <div class="blob" style="top: 30vh; right: 0;"></div>
+        <div class="blob" style="top: 60vh; left: 0;"></div>
+
+        <div class="logo_group">
+            <h2>Добавить чек-лист</h2>
+        </div>
+
+        <!--- Форма --->
+        <form action="http://127.0.0.1:8000/add_house" method="post">
+
+            <input name="id" id="id_fld" type="text" style="display: none;">
+
+            <div class="form_group">
+                <input name="name" id="home_name" class="form_input" autocomplete="off" placeholder=" ">
+                <label class="form_label">Название дома</label>
+            </div>
+
+            <span>Доступ</span>
+            <select name="access">
+                <option value="admin">Администратор</option>
+                <option value="it">IT-специалист</option>
+                <option value="engineer">Инженер</option>
+                <option value="electrical">Электрик</option>
+                <option value="fireman">Пожарный</option>
+            </select>
+
+            <button id="new_task_btn" onclick="addTask()">Добавить проверку</button>
+            <table id="tasks" style="display: none;"></table>
+
+            <input id="submit" onclick="verifyFields();" value="СОХРАНИТЬ" type="submit">
+
+        </form>
+
+    </div>
+
+    <div id="error_div" style="display: none;">
+        <div>
+            <h2>Ошибка</h2><br>
+            <span id="error_text"></span><br><br>
+            <button>OK</button>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script type="text/javascript" src="../new_checklist/static/js/app.js"></script>
+    
+</body>
+</html>

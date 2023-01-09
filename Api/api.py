@@ -1,5 +1,8 @@
-from fastapi import FastAPI, Form, Body
+from fastapi import FastAPI, Form, Body, Request
 from pydantic import BaseModel
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
 from typing import Union
 import uvicorn
 import traceback
@@ -11,6 +14,9 @@ from config import host_url, port
 from Utility.database_connector import db_users, db_house
 
 app = FastAPI()
+app.mount("/new_checklist/static", StaticFiles(directory=r"A:\Документы\GitHub\house_manager_TG\Api\templates\new_checklist\static"), name="static")
+templates = Jinja2Templates(
+    directory=r"A:\Документы\GitHub\house_manager_TG\Api\templates")
 
 
 def start_server():
@@ -52,17 +58,21 @@ class GetReport(BaseModel):
 class GetCols(BaseModel):
     name_table: str
 
+
 class AddHouse(BaseModel):
     name: str
-    access:str
+    access: str
     tasks: list
-    user_id: str  # {'name': .., 'access': 'admin/it/electrical/fireman/engineer', tasks: ['task1', 'task2']}
+    # {'name': .., 'access': 'admin/it/electrical/fireman/engineer', tasks: ['task1', 'task2']}
+    user_id: str
+
 
 class AddUserWA(BaseModel):
-    name:str
-    id:str
-    access:str
-    user_id:str
+    name: str
+    id: str
+    access: str
+    user_id: str
+
 
 class UpdateReport(BaseModel):
     user_id: int
@@ -88,6 +98,14 @@ async def bug_catcher(coro, name_debug, dict_required=False, data_required=True,
         return {'result': False}
 
 # users
+
+
+@app.get('/new-checklist', response_class=HTMLResponse)
+async def new_checklist(request: Request):
+    print(request.items())
+    return templates.TemplateResponse("new_checklist/index.html", {"request": request})
+
+
 
 
 @app.get('/get_admins')
@@ -160,13 +178,26 @@ async def update_report(item: UpdateReport):
                              'update_report', data_required=False)
 
 
-#webapps
+# webapps
 
 @app.post('/add_house/')
-async def add_house(item: AddHouse):
-    if item.user_id:
-        return await bug_catcher(db_house.create_new_table(name_table=item.name, args_list=item.tasks),
-                                'create_new_table', data_required=False)
+async def add_house(req: Request):
+    data = await req.form()
+    user_id = data.get('id')
+    if user_id != '':
+        args_list = []
+        task = 1
+        arg = data.get(f'task_{task}')
+        while arg:
+            task +=1
+            args_list.append(arg)
+            arg = data.get(f'task_{task}')
+            
+        await bug_catcher(db_house.create_new_table(name_table=f'{data.get("name")}_{data.get("access")}', args_list=args_list),
+                                 'create_new_table', data_required=False)
+    return HTMLResponse( content=
+		'<script type="text/javascript" src="https://telegram.org/js/telegram-web-app.js"></script>' 
+		'<script>Telegram.WebApp.ready();Telegram.WebApp.close();</script>', status_code=200)
 
 
 @app.post('/add_userWA/')
@@ -175,4 +206,3 @@ async def add_userWA(item: AddUserWA):
         user_info = UserInfo(item.name, item.id, )
         setattr(user_info, item.access, True)
         return await bug_catcher(db_users.add_user(user_info=user_info.__dict__), 'add_user', data_required=False)
-

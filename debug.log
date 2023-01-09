@@ -1208,3 +1208,13 @@ sqlite3.OperationalError: no such column: None
 03.01.2023 18:04:39:439|INFO|TG.handlers on_startup line:22|send main menu
 03.01.2023 18:05:18:518|INFO|TG.handlers on_startup line:22|send main menu
 03.01.2023 21:53:02:532|INFO|TG.handlers on_startup line:22|send main menu
+09.01.2023 06:34:17:3417|INFO|TG.handlers on_startup line:22|send main menu
+09.01.2023 06:36:39:3639|INFO|TG.handlers on_startup line:22|send main menu
+09.01.2023 06:40:37:4037|INFO|TG.handlers on_startup line:22|send main menu
+09.01.2023 06:42:07:427|INFO|TG.handlers on_startup line:22|send main menu
+09.01.2023 06:44:06:446|INFO|TG.handlers on_startup line:22|send main menu
+09.01.2023 06:44:33:4433|INFO|TG.handlers on_startup line:22|send main menu
+09.01.2023 06:50:44:5044|INFO|TG.handlers on_startup line:22|send main menu
+09.01.2023 06:52:18:5218|INFO|TG.handlers on_startup line:22|send main menu
+09.01.2023 06:53:52:5352|INFO|TG.handlers on_startup line:22|send main menu
+09.01.2023 07:02:32:232|INFO|TG.handlers on_startup line:22|send main menu
