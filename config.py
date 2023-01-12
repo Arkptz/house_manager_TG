@@ -10,6 +10,7 @@ admin_list = [['\_-_/',1021524873],['Ilya Ermi',828458879]] #[name,id]
 BOT_TOKEN = '5849628959:AAHXJAHn63SjKVCVbnNIajGDauoDOFitrQw'
 USER_BOT_TOKEN = '5772331354:AAFvlbXM19WqsfhTv2qCLY5ur7V8EBEuZ2s' #@testim_bbbbot
 host_webapps = 'https://c53c-5-164-3-135.eu.ngrok.io'
+host_webapps = 'https://prostorstroj.ru'
 db_path = f'{homeDir}\\db.db'
 host_url = '127.0.0.1'
 port = 8000

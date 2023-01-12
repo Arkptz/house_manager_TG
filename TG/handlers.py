@@ -47,18 +47,18 @@ async def admin_menu(msg: Message):
     )
 
 
-# @dp.message_handler(commands=['user'])
-# @user
-# async def user_menu(msg: Message):
-#     user_id = msg.chat.id
-#     user = await http.get_user(user_id)
-#     menu_markup = kbd.main_menu(user)
-#     txt = 'Выбери здание' if menu_markup[1] == 'houses' else 'Выбери проффесию'
-#     await bot.send_message(
-#         chat_id=msg.chat.id,
-#         text=f'<b>{txt}:</b>',
-#         reply_markup=menu_markup[0]
-#     )
+@dp.message_handler(commands=['user'])
+@user
+async def user_menu(msg: Message):
+    user_id = msg.chat.id
+    user = await http.get_user(user_id)
+    menu_markup = kbd.main_menu(user)
+    txt = 'Выбери здание' if menu_markup[1] == 'houses' else 'Выбери проффесию'
+    await bot.send_message(
+        chat_id=msg.chat.id,
+        text=f'<b>{txt}:</b>',
+        reply_markup=menu_markup[0]
+    )
 
 
 @dp.callback_query_handler(text='back_to_menu',

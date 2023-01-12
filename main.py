@@ -1,5 +1,4 @@
 from TG.bot import start_bot
-from TG.user_bot import start_bot as start_user_bot
 from Api.api import start_server
 import multiprocessing
 from time import sleep
@@ -19,8 +18,6 @@ if __name__ == "__main__":
     t2.start()
     t1 = multiprocessing.Process(target=start_tg_bot)
     t1.start()
-    t3 = multiprocessing.Process(target=start_user_bot)
-    t3.start()
     try:
         while True:
             pass

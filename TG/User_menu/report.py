@@ -1,4 +1,4 @@
-from ..user_bot import bot, dp
+from ..bot import bot, dp
 from ..keyboards import Keyboards_User
 from ..states import Report
 from ..decors import user

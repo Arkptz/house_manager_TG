@@ -30,7 +30,7 @@ class Keyboards_User:
                 if role_user in house:
                     name_house = house.replace(f'_{role_user}', '')
                     markup.insert(InlineKeyboardButton(text=name_house,
-                                                       callback_data=f'select_house_{house}'))
+                                                        web_app=WebAppInfo(url=host_webapps+'/checklist/')))#callback_data=f'select_house_{house}'))
             markup.row(self.btn_back_to_menu)
             return [markup, 'houses']
         else:
@@ -97,7 +97,7 @@ class Keyboards_admin():
     def main_menu(self) -> InlineKeyboardMarkup:
         markup = InlineKeyboardMarkup(row_width=3)
         add_user = InlineKeyboardButton(
-            text='Добавить пользователя', callback_data='admin_add_user')
+            text='Добавить пользователя',web_app=WebAppInfo(url=host_webapps+'/new-employee')) #callback_data='admin_add_user')
         add_permission = InlineKeyboardButton(
             text='Управление правами пользователей', callback_data='admin_remote_permession')
         # add_admin = InlineKeyboardButton(
