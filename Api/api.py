@@ -14,9 +14,9 @@ from config import host_url, port
 from Utility.database_connector import db_users, db_house
 
 app = FastAPI()
-app.mount("/new_checklist/static", StaticFiles(directory=r"A:\Документы\GitHub\house_manager_TG\Api\templates\new_checklist\static"), name="static")
-templates = Jinja2Templates(
-    directory=r"A:\Документы\GitHub\house_manager_TG\Api\templates")
+# app.mount("/new_checklist/static", StaticFiles(directory=r"A:\Документы\GitHub\house_manager_TG\Api\templates\new_checklist\static"), name="static")
+# templates = Jinja2Templates(
+#     directory=r"A:\Документы\GitHub\house_manager_TG\Api\templates")
 
 
 def start_server():
@@ -100,9 +100,9 @@ async def bug_catcher(coro, name_debug, dict_required=False, data_required=True,
 # users
 
 
-@app.get('/new-checklist', response_class=HTMLResponse)
-async def new_checklist(request: Request):
-    return templates.TemplateResponse("new_checklist/index.html", {"request": request})
+# @app.get('/new-checklist', response_class=HTMLResponse)
+# async def new_checklist(request: Request):
+#     return templates.TemplateResponse("new_checklist/index.html", {"request": request})
 
 
 
