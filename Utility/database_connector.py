@@ -94,7 +94,7 @@ class DbHouse:
     async def create_new_table(self, name_table: str, args_list: list, ):
         _str = f'CREATE TABLE IF NOT EXISTS {name_table} ( date TEXT, id int,'
         for i in args_list:
-            _str += f'{i} TEXT,'
+            _str += f'"{i}" TEXT,'
         _str = _str[:-1]
         _str += ')'
         self.cursor.execute(_str)
