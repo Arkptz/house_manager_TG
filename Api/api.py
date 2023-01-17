@@ -155,6 +155,7 @@ async def get_name_tables():
 # houses
 @app.post('/create_new_table/')
 async def create_new_table(item: NewTable):
+    print(item.name_table + item.permission)
     return await bug_catcher(db_house.create_new_table(name_table=item.name_table + '_' + item.permission, args_list=item.args_list),
                              'create_new_table', data_required=False)
 
