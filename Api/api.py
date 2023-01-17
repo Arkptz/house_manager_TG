@@ -43,7 +43,7 @@ class GetUser(BaseModel):
 class NewTable(BaseModel):
     name_table: str
     args_list: list
-
+    permission: str
 
 class AddTranslate(BaseModel):
     original: str
@@ -155,7 +155,7 @@ async def get_name_tables():
 # houses
 @app.post('/create_new_table/')
 async def create_new_table(item: NewTable):
-    return await bug_catcher(db_house.create_new_table(name_table=item.name_table, args_list=item.args_list),
+    return await bug_catcher(db_house.create_new_table(name_table=item.name_table + '_' + item.permission, args_list=item.args_list),
                              'create_new_table', data_required=False)
 
 
