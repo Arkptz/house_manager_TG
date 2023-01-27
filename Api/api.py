@@ -159,19 +159,18 @@ async def create_new_table(item: NewTable):
         item.permission = 'it'
     elif item.permission == 'electrician':
         item.permission = 'electrical'
-        
-    print(item.name_table + item.permission)
+
     return await bug_catcher(db_house.create_new_table(name_table=f'{item.name_table}_{item.permission}', args_list=item.args_list),
                              'create_new_table', data_required=False)
 
 
-@app.get('/get_report_with_current_date/')
+@app.post('/get_report_with_current_date/')
 async def get_report_with_current_date(item: GetReport):
     return await bug_catcher(db_house.get_report_with_current_date(item.user_id, item.name_table),
                              'get_report_with_current_date')
 
 
-@app.get('/get_name_cols_for_table/')
+@app.post('/get_name_cols_for_table/')
 async def get_name_cols_for_table(item: GetCols):
     return await bug_catcher(db_house.get_name_cols_for_table(item.name_table),
                              'get_name_cols_for_table')
