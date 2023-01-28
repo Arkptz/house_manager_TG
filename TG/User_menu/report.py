@@ -46,7 +46,7 @@ async def select_role(cq: CallbackQuery):
     msg = cq.message
     user_id = msg.chat.id
     role = cq.data.split('select_role_')[1]
-    await bot.edit_message_text(chat_id=user_id, message_id=msg.message_id, text='Выбери здание:', reply_markup=kbd.main_menu(role_user=role)[0])
+    await bot.edit_message_text(chat_id=user_id, message_id=msg.message_id, text='Выбери здание:', reply_markup=kbd.main_menu(role_user=role, user_id = user_id)[0])
 
 
 @dp.callback_query_handler(Text(startswith='approve_task_'), state=Report.tasks)
