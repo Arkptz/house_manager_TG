@@ -31,7 +31,7 @@ class Keyboards_User:
                     name_house = house.replace(f'_{role_user}', '')
                     markup.insert(InlineKeyboardButton(text=name_house, callback_data=f'select_house_{house}'))
                     markup.insert(InlineKeyboardButton(text=name_house,
-                                                         web_app=WebAppInfo(url=host_webapps+f'/checklist/?user_id={user_id if user_id else user.id}')))#callback_data=f'select_house_{house}'))
+                                                         web_app=WebAppInfo(url=host_webapps+f'/checklist/{house}/?user_id={user_id if user_id else user.id}')))#callback_data=f'select_house_{house}'))
             markup.row(self.btn_back_to_menu)
             return [markup, 'houses']
         else:
