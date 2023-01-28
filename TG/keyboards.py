@@ -18,6 +18,7 @@ class Keyboards_User:
 
     def main_menu(self, user: UserInfo = None, role_user: str = False):
         markup = InlineKeyboardMarkup(row_width=3)
+        print(user)
         roles_user = []
         if not role_user:
             for role in self.roles:
