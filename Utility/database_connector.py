@@ -142,8 +142,10 @@ class DbHouse:
             f"SELECT * FROM {name_table} WHERE id={user_id} AND date='{date}'").fetchone()
         _str = f'UPDATE {name_table} SET'
         for key in tasks.keys():
-            _str += f" {key}='{tasks[key]['commentary']}',"
-            _str += f"{key}__checkbox_handle={tasks[key]['checkbox']}," if 'checkbox' in tasks[key].keys() else ''
+            if 'commentary' in tasks[key].keys():
+                _str += f" {key}='{tasks[key]['commentary']}',"
+            if 'checkbox' in tasks[key].keys():
+                _str += f"{key}__checkbox_handle={tasks[key]['checkbox']},"
         _str = _str[:-1]
         _str += f" WHERE id = {user_id} AND date='{date}'"
         self.cursor.execute(_str)
