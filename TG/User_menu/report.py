@@ -20,8 +20,10 @@ async def send_report(user_id, house, edit=True, msg: Message = None):
     cur_report = await http.get_report_with_current_date(user_id, house)
     for task in cur_report.keys():
         ans = cur_report[task]
-        ans = ans if ans != 'None' else '✅Всё гуд'
-        txt += f'   {task}: {ans}\n'
+        print(ans)
+        tx = '✅' if ans['checkbox'] else ''
+        tx += ans['commentary'] if ans['commentary'] != '' else 'Всё гуд'
+        txt += f'   {task}: {tx}\n'
     if edit:
         await bot.edit_message_text(chat_id=user_id, message_id=msg.message_id, text=txt, reply_markup=kbd.tasks_kbd(tmp[user_id].tasks, cur_report, page=tmp[user_id].page))
     else:
@@ -55,7 +57,7 @@ async def approve_task(cq: CallbackQuery, state: FSMContext):
     task = cq.data.split('approve_task_')[1]
     msg = cq.message
     user_id = msg.chat.id
-    await http.update_report(user_id, tmp[user_id].name_table,  tasks={task: 'None'})
+    await http.update_report(user_id, tmp[user_id].name_table,  tasks={task: {'checkbox':True}})
     await send_report(user_id, tmp[user_id].name_table, msg=msg)
 
 
@@ -76,7 +78,7 @@ async def comment_input(msg: Message, state: FSMContext):
     data = await state.get_data()
     task = data['task']
     user_id = msg.chat.id
-    await http.update_report(user_id, tmp[user_id].name_table, tasks={task: msg.text})
+    await http.update_report(user_id, tmp[user_id].name_table, tasks={task: {'commentary':msg.text}})
     await send_report(user_id, tmp[user_id].name_table, edit=False)
 
 

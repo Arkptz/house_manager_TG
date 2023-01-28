@@ -95,6 +95,7 @@ class DbHouse:
         _str = f'CREATE TABLE IF NOT EXISTS {name_table} ( date TEXT, id int,'
         for i in args_list:
             _str += f'"{i}" TEXT,'
+            _str += f'"{i}_checkbox_handle" BOOLEAN,'
         _str = _str[:-1]
         _str += ')'
         self.cursor.execute(_str)
@@ -112,6 +113,7 @@ class DbHouse:
             _str = f"INSERT INTO {name_table} VALUES('{date}', {user_id},"
             for i in cols:
                 ans.append('')
+                ans.append(False)
                 _str += "'',"
             _str = _str[:-1]
             _str += ')'
@@ -119,7 +121,7 @@ class DbHouse:
             self.db.commit()
         ans_dict = {}
         for i in range(len(cols)):
-            ans_dict[cols[i]] = ans[i]
+            ans_dict[cols[i]] = {'commentary': ans[i*2], 'checkbox': True if ans[i*2+1] else False}
         return ans_dict
 
     async def get_name_cols_for_table(self, name_table: str) -> list[str]:
@@ -128,7 +130,7 @@ class DbHouse:
         cols_res = []
         for i in cols:
             col_name = i[1]
-            if not col_name in ['date', 'id']:
+            if not col_name in ['date', 'id'] and len(col_name.split('_checkbox_handle')) ==1:
                 cols_res.append(col_name)
         return cols_res
 
@@ -138,7 +140,8 @@ class DbHouse:
             f"SELECT * FROM {name_table} WHERE id={user_id} AND date='{date}'").fetchone()
         _str = f'UPDATE {name_table} SET'
         for key in tasks.keys():
-            _str += f" {key}='{tasks[key]}',"
+            _str += f" {key}='{tasks[key]['commentary']}',"
+            _str += f"{key}__checkbox_handle={tasks[key]['checkbox']}," if 'checkbox' in tasks['key'].keys() else ''
         _str = _str[:-1]
         _str += f" WHERE id = {user_id} AND date='{date}'"
         self.cursor.execute(_str)

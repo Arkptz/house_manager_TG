@@ -48,22 +48,17 @@ class Keyboards_User:
         for task in select_tasks:
             lst_buttons = []
             task_res = current_report[task]
-            if task_res != '':
-                lst_buttons.append(InlineKeyboardButton(
-                    text=f'✅{task}', callback_data='////'))
-                if task_res == 'None':
-                    lst_buttons.append(InlineKeyboardButton(
-                        text='📝(Доб. комм.)', callback_data=f'add_comment_{task}'))
-                else:
-                    lst_buttons.append(InlineKeyboardButton(
-                        text='📝(Изм. комм.)', callback_data=f'add_comment_{task}'))
-            else:
-                lst_buttons.append(InlineKeyboardButton(
-                    text=task, callback_data='////'))
+            lst_buttons.append(InlineKeyboardButton(
+                text=f'✅{task}', callback_data='////'))
+            if not task_res['checkbox']:
                 lst_buttons.append(InlineKeyboardButton(
                     text='✅(Всё гуд)', callback_data=f'approve_task_{task}'))
+            if task_res['commentary'] == '':
                 lst_buttons.append(InlineKeyboardButton(
                     text='📝(Доб. комм.)', callback_data=f'add_comment_{task}'))
+            else:
+                lst_buttons.append(InlineKeyboardButton(
+                    text='📝(Изм. комм.)', callback_data=f'add_comment_{task}'))
             markup.row(*lst_buttons)
         markup.row(InlineKeyboardButton(
             text='------------------------------------------', callback_data='.....'))
