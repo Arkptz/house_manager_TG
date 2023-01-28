@@ -102,6 +102,7 @@ class DbHouse:
         self.db.commit()
 
     async def get_report_with_current_date(self, user_id: int, name_table: str) -> Union[dict[str, str], bool]:
+        
         date = str(datetime.now().date())
         ans = self.cursor.execute(
             f"SELECT * FROM {name_table} WHERE id={user_id} AND date='{date}'").fetchone()
@@ -122,6 +123,7 @@ class DbHouse:
         ans_dict = {}
         for i in range(len(cols)):
             ans_dict[cols[i]] = {'commentary': ans[i*2], 'checkbox': True if ans[i*2+1] else False}
+        print(ans_dict)
         return ans_dict
 
     async def get_name_cols_for_table(self, name_table: str) -> list[str]:
