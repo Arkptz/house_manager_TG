@@ -145,7 +145,7 @@ class DbHouse:
             if 'commentary' in tasks[key].keys():
                 _str += f" {key}='{tasks[key]['commentary']}',"
             if 'checkbox' in tasks[key].keys():
-                _str += f" {key}__checkbox_handle={tasks[key]['checkbox']},"
+                _str += f" {key}_checkbox_handle={tasks[key]['checkbox']},"
         _str = _str[:-1]
         _str += f" WHERE id = {user_id} AND date='{date}'"
         self.cursor.execute(_str)
