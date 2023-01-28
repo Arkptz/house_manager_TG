@@ -22,7 +22,7 @@ async def send_report(user_id, house, edit=True, msg: Message = None):
         ans = cur_report[task]
         print(ans)
         tx = '✅' if ans['checkbox'] else ''
-        tx += ans['commentary'] if ans['commentary'] != '' and ans['checkbox'] else 'Всё гуд'
+        tx += ans['commentary'] if ans['commentary'] != '' and not ans['checkbox'] else 'Всё гуд'
         txt += f'   {task}: {tx}\n'
     if edit:
         await bot.edit_message_text(chat_id=user_id, message_id=msg.message_id, text=txt, reply_markup=kbd.tasks_kbd(tmp[user_id].tasks, cur_report, page=tmp[user_id].page))
