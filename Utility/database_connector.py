@@ -154,6 +154,7 @@ class DbHouse:
         self.db.commit()
     
     async def delete_house(self, name_house:str):
+        print(name_house)
         self.cursor.execute('DROP TABLE ?', [name_house])
         self.db.commit()
 
