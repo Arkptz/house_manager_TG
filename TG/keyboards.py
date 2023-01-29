@@ -116,7 +116,6 @@ class Keyboards_admin():
     def menu_houses(self):
         markup = InlineKeyboardMarkup(row_width=2)
         for i in hs():
-            print(i)
             markup.insert(InlineKeyboardButton(text=i, callback_data=f'delete_house_{i}'))
         markup.row(self.btn_back_to_menu)
         return markup
