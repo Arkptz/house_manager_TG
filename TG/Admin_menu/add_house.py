@@ -29,13 +29,13 @@ async def delete_house(cq: CallbackQuery):
                                                                                     , reply_markup=kbd.menu_houses())
 
 
-@dp.callback_query_handler(text=Text(startswith='delete_house_'))
+@dp.callback_query_handler(Text(startswith='delete_house_'))
 @admin
 async def delete_house_(cq: CallbackQuery):
     msg = cq.message
     select_house = cq.data.split('delete_house_')[1]
     await http.delete_house(select_house)
-    await bot.edit_message_text(chat_id=msg.chat.id, message_id=msg.message_id, text='Дом успешно удалён!:'
+    await bot.edit_message_text(chat_id=msg.chat.id, message_id=msg.message_id, text='Дом успешно удалён!'
                                                                                     , reply_markup=kbd.menu_houses())
 
 @dp.callback_query_handler(text='add_new_house')
