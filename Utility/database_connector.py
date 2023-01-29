@@ -144,6 +144,7 @@ class DbHouse:
             f"SELECT * FROM {name_table} WHERE id={user_id} AND date='{date}'").fetchone()
         _str = f'UPDATE {name_table} SET'
         for key in tasks.keys():
+            print(key)
             if 'commentary' in tasks[key].keys():
                 _str += f" {key}='{tasks[key]['commentary']}',"
             if 'checkbox' in tasks[key].keys():
