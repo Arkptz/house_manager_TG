@@ -31,7 +31,7 @@ async def delete_house(cq: CallbackQuery):
 
 @dp.callback_query_handler(text=Text(startswith='delete_house_'))
 @admin
-async def delete_house(cq: CallbackQuery):
+async def delete_house_(cq: CallbackQuery):
     msg = cq.message
     select_house = cq.data.split('delete_house_')[1]
     await http.delete_house(select_house)
