@@ -122,7 +122,6 @@ class DbHouse:
             self.cursor.execute(_str)
             self.db.commit()
         ans_dict = {}
-        print(ans)
         for i in range(len(cols)):
             ans_dict[cols[i]] = {'commentary': ans[i*2], 'checkbox': True if ans[i*2+1] else False}
         return ans_dict
@@ -140,21 +139,22 @@ class DbHouse:
     async def update_report(self, user_id: int, name_table: str, tasks: dict) -> None:
         if 'tasks' in tasks:
             tasks = tasks['tasks']
-        print(tasks, type(tasks))
         date = str(datetime.now().date())
         ans = self.cursor.execute(
             f"SELECT * FROM {name_table} WHERE id={user_id} AND date='{date}'").fetchone()
         _str = f'UPDATE {name_table} SET'
         for key in tasks:
-            print(key)
             if 'commentary' in tasks[key].keys():
                 _str += f" {key}='{tasks[key]['commentary']}',"
             if 'checkbox' in tasks[key].keys():
                 _str += f" {key}_checkbox_handle={tasks[key]['checkbox']},"
         _str = _str[:-1]
         _str += f" WHERE id = {user_id} AND date='{date}'"
-        print(_str)
         self.cursor.execute(_str)
+        self.db.commit()
+    
+    async def delete_house(self, name_house:str):
+        self.cursor.execute('DROP TABLE ?', [name_house])
         self.db.commit()
 
 

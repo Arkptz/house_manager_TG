@@ -181,6 +181,10 @@ async def update_report(item: UpdateReport):
     return await bug_catcher(db_house.update_report(item.user_id, item.name_table, item.tasks),
                              'update_report', data_required=False)
 
+@app.post('/delete_house')
+async def delete_house(name_house:str = Body()):
+    return await bug_catcher(db_house.delete_house(name_house),
+                             'delete_house', data_required=False)
 
 # webapps
 

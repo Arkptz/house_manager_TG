@@ -74,5 +74,8 @@ class Http:
     async def update_report(self, user_id: int, name_table: str, tasks: dict) -> None:
         ans = await self.req('update_report/', data={'user_id': user_id, 'name_table': name_table, 'tasks': tasks}, method='POST')
 
+    async def delete_house(self, name_house: str) -> None:
+        ans = await self.req('delete_house/', data={'name_house': name_house}, method='POST')
+
 
 http = Http()

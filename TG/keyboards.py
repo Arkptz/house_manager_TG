@@ -29,7 +29,7 @@ class Keyboards_User:
             for house in hs():
                 if role_user in house:
                     name_house = house.replace(f'_{role_user}', '')
-                    markup.insert(InlineKeyboardButton(text=name_house, callback_data=f'select_house_{house}'))
+                    #markup.insert(InlineKeyboardButton(text=name_house, callback_data=f'select_house_{house}'))
                     markup.insert(InlineKeyboardButton(text=name_house,
                                                          web_app=WebAppInfo(url=host_webapps+f'/checklist/{house}/{user_id if user_id else user.id}/')))#callback_data=f'select_house_{house}'))
             markup.row(self.btn_back_to_menu)
@@ -109,7 +109,17 @@ class Keyboards_admin():
         markup.add(add_user, add_permission)
         markup.row(InlineKeyboardButton(
             'Добавить новый дом', web_app=WebAppInfo(url=host_webapps+'/new-checklist')))
+        markup.row(InlineKeyboardButton(
+            'Удалить дом', callback_data='delete_house'))
         return markup
+
+    def menu_houses(self):
+        markup = InlineKeyboardMarkup(row_width=2)
+        for i in hs():
+            markup.insert(InlineKeyboardButton(text=i, callback_data=f'delete_house_{i}'))
+        markup.row(self.btn_back_to_menu)
+        return markup
+
 
     def give_admin(self) -> InlineKeyboardMarkup:
         markup = InlineKeyboardMarkup(row_width=2)
