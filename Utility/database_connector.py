@@ -150,6 +150,7 @@ class DbHouse:
                 _str += f" {key}_checkbox_handle={tasks[key]['checkbox']},"
         _str = _str[:-1]
         _str += f" WHERE id = {user_id} AND date='{date}'"
+        print(_str)
         self.cursor.execute(_str)
         self.db.commit()
 
