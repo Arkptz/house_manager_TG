@@ -122,7 +122,7 @@ class DbHouse:
             self.cursor.execute(_str)
             self.db.commit()
         ans_dict = {}
-        print(cols)
+        print(ans)
         for i in range(len(cols)):
             ans_dict[cols[i]] = {'commentary': ans[i*2], 'checkbox': True if ans[i*2+1] else False}
         return ans_dict
