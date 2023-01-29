@@ -138,7 +138,8 @@ class DbHouse:
         return cols_res
 
     async def update_report(self, user_id: int, name_table: str, tasks: dict) -> None:
-        print(user_id, name_table, tasks, type(tasks))
+        if 'tasks' in tasks:
+            tasks = tasks['tasks']
         date = str(datetime.now().date())
         ans = self.cursor.execute(
             f"SELECT * FROM {name_table} WHERE id={user_id} AND date='{date}'").fetchone()
