@@ -138,12 +138,12 @@ class DbHouse:
         return cols_res
 
     async def update_report(self, user_id: int, name_table: str, tasks: dict) -> None:
-        print(user_id, name_table, tasks)
+        print(user_id, name_table, tasks, type(tasks))
         date = str(datetime.now().date())
         ans = self.cursor.execute(
             f"SELECT * FROM {name_table} WHERE id={user_id} AND date='{date}'").fetchone()
         _str = f'UPDATE {name_table} SET'
-        for key in tasks.keys():
+        for key in tasks:
             print(key)
             if 'commentary' in tasks[key].keys():
                 _str += f" {key}='{tasks[key]['commentary']}',"
