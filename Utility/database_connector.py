@@ -124,6 +124,7 @@ class DbHouse:
         ans_dict = {}
         for i in range(len(cols)):
             ans_dict[cols[i]] = {'commentary': ans[i*2], 'checkbox': True if ans[i*2+1] else False}
+        print(ans_dict)
         return ans_dict
 
     async def get_name_cols_for_table(self, name_table: str) -> list[str]:
