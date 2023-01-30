@@ -124,7 +124,6 @@ class DbHouse:
         ans_dict = {}
         for i in range(len(cols)):
             ans_dict[cols[i]] = {'commentary': ans[i*2], 'checkbox': True if ans[i*2+1] else False}
-        print(ans_dict)
         return ans_dict
 
     async def get_name_cols_for_table(self, name_table: str) -> list[str]:
@@ -138,7 +137,6 @@ class DbHouse:
         return cols_res
 
     async def update_report(self, user_id: int, name_table: str, tasks: dict) -> None:
-        print(tasks)
         if 'tasks' in tasks:
             tasks = tasks['tasks']
         date = str(datetime.now().date())
@@ -152,7 +150,6 @@ class DbHouse:
                 _str += f" '{key}_checkbox_handle'={tasks[key]['checkbox']},"
         _str = _str[:-1]
         _str += f" WHERE id = {user_id} AND date='{date}'"
-        print(_str)
         self.cursor.execute(_str)
         self.db.commit()
     
