@@ -137,6 +137,7 @@ class DbHouse:
         return cols_res
 
     async def update_report(self, user_id: int, name_table: str, tasks: dict) -> None:
+        print(tasks)
         if 'tasks' in tasks:
             tasks = tasks['tasks']
         date = str(datetime.now().date())
@@ -150,6 +151,7 @@ class DbHouse:
                 _str += f" {key}_checkbox_handle={tasks[key]['checkbox']},"
         _str = _str[:-1]
         _str += f" WHERE id = {user_id} AND date='{date}'"
+        print(_str)
         self.cursor.execute(_str)
         self.db.commit()
     
